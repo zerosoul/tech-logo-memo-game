@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useReducer } from 'react';
 import styled, { keyframes } from 'styled-components';
+import { initialState, reducer } from '../reducer';
+
 import FEImage from '../assets/img/fe.png';
 
 const FlipInY = keyframes`
@@ -81,14 +83,40 @@ const Wrapper = styled.div`
     background-repeat: no-repeat;
   }
 `;
-const Card = ({ title = '', logoFilePath = '', clickable = true }) => {
-  const [revealed, setRevealed] = useState(false);
+const Card = ({ id = 0, name = '', title = '', logoFilePath = '', revealed = false }) => {
+  const [state, dispatch] = useReducer(reducer, initialState);
+  const { logos, selects, hits } = state;
   const handleClick = () => {
-    if (!clickable) return;
-    setRevealed(r => {
-      return !r;
-    });
+    const count = selects.length;
+    const [first] = selects;
+    switch (count) {
+      case 0:
+        dispatch({ type: 'ADD_SELECTS', data: { id } });
+        break;
+      case 1:
+        if (first.name === name) {
+          dispatch({ type: 'ADD_HITS', data: { name } });
+        } else {
+          dispatch({ type: 'ADD_SELECTS', data: { id } });
+        }
+        break;
+      case 2:
+        dispatch({ type: 'RESET_SELECTS', data: {} });
+        dispatch({ type: 'ADD_SELECTS', data: { id } });
+        break;
+    }
+    if (hits.length === logos.length) {
+      dispatch({ type: 'GOOD_JOB', data: {} });
+    }
   };
+  // const getRevealed = id => {
+  //   let inSelects = !!selects.find(item => item.id === id);
+  //   let inHits = !!hits.find(item => item.id === id);
+  //   console.log('get revealed', inSelects, inHits);
+
+  //   return inSelects || inHits;
+  // };
+  // let revealed = getRevealed(id);
   return (
     <Wrapper revealed={revealed} onClick={handleClick} logoFilePath={logoFilePath}>
       {!revealed && <p className="cover" />}

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.aside`
@@ -16,8 +16,16 @@ const Wrapper = styled.aside`
     margin-bottom: 0.5rem;
   }
 `;
-
-const PlayTimer = () => {
+let interID = null;
+const PlayTimer = ({ playing }) => {
+  useEffect(() => {
+    if (playing) {
+      interID = setInterval(() => {}, 1000);
+    }
+    return () => {
+      clearInterval(interID);
+    };
+  }, [playing]);
   return (
     <Wrapper>
       <p className="currTime">09:45</p>

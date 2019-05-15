@@ -9,7 +9,7 @@
   },
   {
     "name": "npm",
-    "title": "npm"
+    "title": "NPM"
   },
   {
     "name": "nodejs",
@@ -78,9 +78,5 @@
   {
     "name": "angular",
     "title": "Angular"
-  },
-  {
-    "name": "gatsby",
-    "title": "Gatsby.js"
   }
 ]

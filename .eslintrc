@@ -1,10 +1,13 @@
 {
   "extends": ["eslint:recommended", "plugin:react/recommended", "prettier"],
+  "plugins": ["react-hooks"],
   "rules": {
     "semi": 2,
     "no-console": "off",
     "react/prop-types": 0,
-    "no-unused-vars": ["error", { "ignoreRestSiblings": true }]
+    "no-unused-vars": ["error", { "ignoreRestSiblings": true }],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
   },
   "parser": "babel-eslint",
   "parserOptions": {
@@ -13,9 +16,6 @@
     "ecmaFeatures": {
       "jsx": true
     }
-  },
-  "globals": {
-    "UE": true
   },
   "env": {
     "browser": true,

@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
+import React, { useReducer, useEffect } from 'react';
+import { initialState, reducer } from '../reducer';
 import Card from '../components/Card';
-import Data from '../data.json';
 import styled, { keyframes } from 'styled-components';
-import { shuffle } from '../utils';
 
 const FadeInUp = keyframes`
   from {
@@ -25,29 +24,36 @@ const Wrapper = styled.section`
   animation-fill-mode: both;
   animation: ${FadeInUp} 1s;
 `;
-const LogoTitles = Data.map(logo => {
-  return { name: logo.name, title: logo.title };
-});
-const LogoPics = Data.map(logo => {
-  return { name: logo.name, path: `static/logos/${logo.name}.png` };
-});
-// 随机展示
-const Logos = shuffle([...LogoTitles, ...LogoPics]);
-export default class Cards extends Component {
-  render() {
-    const { selectedCount } = this.props;
-    return (
-      <Wrapper>
-        {Logos.map(logo => (
-          <Card
-            selectedCount={selectedCount}
-            title={logo.title || ''}
-            logoFilePath={logo.path || ''}
-            name={logo.name}
-            key={logo.name}
-          />
-        ))}
-      </Wrapper>
-    );
-  }
-}
+const Cards = () => {
+  const [state] = useReducer(reducer, initialState);
+  console.log('logos', state);
+
+  const { logos: Logos, selects, hits } = state;
+  // const getRevealed = id => {
+  //   let inSelects = !!selects.find(item => item.id === id);
+  //   let inHits = !!hits.find(item => item.id === id);
+  //   console.log('get revealed', inSelects, inHits);
+
+  //   return inSelects || inHits;
+  // };
+  useEffect(() => {
+    console.log('666');
+  }, [selects, hits]);
+  return (
+    <Wrapper>
+      {Logos.map(logo => (
+        <Card
+          id={logo.id}
+          key={logo.id}
+          title={logo.title || ''}
+          logoFilePath={logo.path || ''}
+          name={logo.name}
+          revealed={
+            !!selects.find(item => item.id === logo.id) || hits.find(item => item.id === logo.id)
+          }
+        />
+      ))}
+    </Wrapper>
+  );
+};
+export default Cards;
