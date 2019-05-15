@@ -19,8 +19,10 @@ const Wrapper = styled.footer`
 const Footer = () => {
   return (
     <Wrapper>
-      <h1>FLMG@Tristan</h1>
-      <h2>Inspired By https://codepen.io/davinci/pen/yVZapY</h2>
+      <h1>FLMG © Tristan</h1>
+      <h2>
+        Inspired By <a href="https://codepen.io/davinci/pen/yVZapY">Brainymo</a>
+      </h2>
     </Wrapper>
   );
 };

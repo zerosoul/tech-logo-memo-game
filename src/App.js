@@ -8,14 +8,26 @@ import Background from './components/ParticlesBackground';
 import { hot } from 'react-hot-loader/root';
 
 class App extends Component {
+  state = {
+    started: false,
+    selectedCount: 0
+  };
+  handleStarted = () => {
+    console.log('ddd');
+
+    this.setState({
+      started: true
+    });
+  };
   render() {
+    const { started, selectedCount } = this.state;
     return (
       <>
         <Background />
         <PlayTimer />
         <Header />
-        <PlayButton />
-        <Cards />
+        <PlayButton started={started} handleStarted={this.handleStarted} />
+        <Cards selectedCount={selectedCount} />
         <Footer />
       </>
     );

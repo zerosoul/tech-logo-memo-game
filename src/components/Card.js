@@ -33,16 +33,16 @@ const Wrapper = styled.div`
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  width: 6rem;
-  height: 8rem;
+  width: 5rem;
+  height: 5rem;
   background: ${({ revealed }) => (revealed ? 'none' : '#ff5e5b')};
 
   border-radius: 0.2rem;
   margin: 0.4rem;
   .cover {
     background: url(${FEImage});
-    width: 80%;
-    height: 80%;
+    width: 60%;
+    height: 60%;
     background-size: contain;
     background-position: center center;
     background-repeat: no-repeat;
@@ -81,9 +81,10 @@ const Wrapper = styled.div`
     background-repeat: no-repeat;
   }
 `;
-const Card = ({ title = '', logoFilePath = '' }) => {
+const Card = ({ title = '', logoFilePath = '', clickable = true }) => {
   const [revealed, setRevealed] = useState(false);
   const handleClick = () => {
+    if (!clickable) return;
     setRevealed(r => {
       return !r;
     });

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.aside`
@@ -10,8 +10,8 @@ const Wrapper = styled.aside`
   top: 1rem;
   left: 0.2rem;
   font-size: 0.8rem;
-  background: #fff2;
-  padding: 0.8rem;
+  background: #fff4;
+  padding: 0.6rem;
   > p {
     margin-bottom: 0.5rem;
   }

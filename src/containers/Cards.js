@@ -18,13 +18,16 @@ const LogoTitles = Data.map(logo => {
 const LogoPics = Data.map(logo => {
   return { name: logo.name, path: `static/logos/${logo.name}.png` };
 });
+// 随机展示
 const Logos = shuffle([...LogoTitles, ...LogoPics]);
 export default class Cards extends Component {
   render() {
+    const { selectedCount } = this.props;
     return (
       <Wrapper>
         {Logos.map(logo => (
           <Card
+            selectedCount={selectedCount}
             title={logo.title || ''}
             logoFilePath={logo.path || ''}
             name={logo.name}

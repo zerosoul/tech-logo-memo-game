@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 const Button = styled.button`
@@ -21,8 +21,8 @@ const Button = styled.button`
   }
 `;
 
-const PlayButton = () => {
-  return <Button>start</Button>;
+const PlayButton = ({ started, handleStarted }) => {
+  return <Button onClick={handleStarted}>{started ? `restart` : `start`}</Button>;
 };
 
 export default PlayButton;
