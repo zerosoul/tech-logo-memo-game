@@ -1,0 +1,7 @@
+{
+  "hooks": {
+    "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+    "pre-commit": "lint-staged",
+    "pre-push": "git pull origin online || echo \"🙄🙄🙄:与远程online分支代码有冲突，请处理后再提交！\" "
+  }
+}

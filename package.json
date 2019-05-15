@@ -1,0 +1,70 @@
+{
+  "name": "frontend-memo-game",
+  "version": "1.0.0",
+  "description": "frontend logo memory game",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "NODE_ENV=development node scripts/start.js",
+    "build-test": "NODE_ENV=test node scripts/build.js",
+    "build-online": "NODE_ENV=production node scripts/build.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zerosoul/frontend-memo-game.git"
+  },
+  "keywords": [
+    "game",
+    "frontend",
+    "memory",
+    "react"
+  ],
+  "author": "tristan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zerosoul/frontend-memo-game/issues"
+  },
+  "homepage": "https://github.com/zerosoul/frontend-memo-game#readme",
+  "dependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-particles-js": "^2.6.0",
+    "styled-components": "^4.2.0",
+    "styled-reset": "^2.0.11"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
+    "@babel/preset-react": "^7.0.0",
+    "@commitlint/cli": "^7.6.1",
+    "@commitlint/config-conventional": "^7.6.0",
+    "@hot-loader/react-dom": "^16.8.6",
+    "autodll-webpack-plugin": "^0.4.2",
+    "babel-eslint": "^10.0.1",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^2.1.1",
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^4.2.0",
+    "eslint-plugin-react": "^7.13.0",
+    "file-loader": "^3.0.1",
+    "happypack": "^5.0.1",
+    "html-webpack-plugin": "^3.2.0",
+    "husky": "^2.3.0",
+    "interpolate-html-plugin": "^3.0.0",
+    "lint-staged": "^8.1.6",
+    "mini-css-extract-plugin": "^0.6.0",
+    "prettier": "^1.17.1",
+    "react-dev-utils": "^9.0.1",
+    "react-hot-loader": "^4.8.4",
+    "style-loader": "^0.23.1",
+    "terser-webpack-plugin": "^1.2.3",
+    "url-loader": "^1.1.2",
+    "webpack": "^4.31.0",
+    "webpack-bundle-analyzer": "^3.3.2",
+    "webpack-cli": "^3.3.2",
+    "webpack-dev-server": "^3.3.1",
+    "webpack-manifest-plugin": "^2.0.4",
+    "webpack-merge": "^4.2.1"
+  }
+}
