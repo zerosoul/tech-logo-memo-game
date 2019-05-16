@@ -12,7 +12,7 @@ const AutoDllPlugin = require('autodll-webpack-plugin');
 // 只是这个值会在 index.html中用 %PUBLIC_URL% 引用，
 // 以及js中process.env.PUBLIC_URL引用
 // 省略‘/’，是为了让 %PUBLIC_PATH%/xyz更直观些，总比 %PUBLIC_PATH%xyz 好阅读些
-const publicUrl = process.env.NODE_ENV === 'development' ? '' : '/';
+const publicUrl = process.env.NODE_ENV === 'development' ? '' : paths.servedPath;
 // 需要注入app中的环境变量
 const env = getClientEnvironment(publicUrl);
 module.exports = {
