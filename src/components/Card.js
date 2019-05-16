@@ -26,12 +26,12 @@ const Wrapper = styled.div`
     width: 100%;
     height: 100%;
     &.flipInY {
-      /* backface-visibility: visible !important; */
+      backface-visibility: visible !important;
       animation-fill-mode: both;
       animation: ${FlipInY} 1s;
     }
     &.flipInX {
-      /* backface-visibility: visible !important; */
+      backface-visibility: visible !important;
       animation-fill-mode: both;
       animation: ${FlipInX} 1s;
     }
