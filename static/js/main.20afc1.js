@@ -139,12 +139,12 @@ from {
     width: 100%;
     height: 100%;
     &.flipInY {
-      /* backface-visibility: visible !important; */
+      backface-visibility: visible !important;
       animation-fill-mode: both;
       animation: ${Et} 1s;
     }
     &.flipInX {
-      /* backface-visibility: visible !important; */
+      backface-visibility: visible !important;
       animation-fill-mode: both;
       animation: ${Pt} 1s;
     }
