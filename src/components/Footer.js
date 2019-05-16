@@ -21,7 +21,10 @@ const Footer = () => {
     <Wrapper>
       <h1>FLMG © Tristan</h1>
       <h2>
-        Inspired By <a href="https://codepen.io/davinci/pen/yVZapY">Brainymo</a>
+        Inspired By{' '}
+        <a target="_blank" rel="noopener noreferrer" href="https://codepen.io/davinci/pen/yVZapY">
+          Brainymo
+        </a>
       </h2>
     </Wrapper>
   );
