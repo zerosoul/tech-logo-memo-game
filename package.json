@@ -24,7 +24,7 @@
   "bugs": {
     "url": "https://github.com/zerosoul/frontend-memo-game/issues"
   },
-  "homepage": "https://github.com/zerosoul/frontend-memo-game#readme",
+  "homepage": "https://zerosoul.github.io/frontend-memo-game",
   "dependencies": {
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
