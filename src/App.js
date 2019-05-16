@@ -1,4 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { Provider } from 'react-redux';
+
+import store from './redux/store';
+
 import Cards from './containers/Cards';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -7,24 +11,15 @@ import PlayTimer from './components/PlayTimer';
 import Background from './components/ParticlesBackground';
 
 const App = () => {
-  const [started, setStarted] = useState(false);
-  const [playing, setPlaying] = useState(false);
-  const handleStarted = () => {
-    console.log('ddd');
-    if (!started) {
-      setStarted(true);
-    }
-    setPlaying(true);
-  };
   return (
-    <>
+    <Provider store={store}>
       <Background />
-      <PlayTimer playing={playing} />
+      <PlayTimer />
       <Header />
-      <PlayButton started={started} handleStarted={handleStarted} />
+      <PlayButton />
       <Cards />
       <Footer />
-    </>
+    </Provider>
   );
 };
 export default App;

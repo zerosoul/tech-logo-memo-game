@@ -1,34 +1,12 @@
-import React, { useReducer } from 'react';
-import styled, { keyframes } from 'styled-components';
-import { initialState, reducer } from '../reducer';
+import React from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { setReveal, resetReveal, setWin } from '../redux/actions';
+import styled from 'styled-components';
+import { FlipInY, Tada } from './Animates';
 
 import FEImage from '../assets/img/fe.png';
 
-const FlipInY = keyframes`
- from {
-    transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
-    animation-timing-function: ease-in;
-    opacity: 0;
-  }
-
-  40% {
-    transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
-    animation-timing-function: ease-in;
-  }
-
-  60% {
-    transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
-    opacity: 1;
-  }
-
-  80% {
-    transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
-  }
-
-  to {
-    transform: perspective(400px);
-  }
-`;
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -39,17 +17,9 @@ const Wrapper = styled.div`
   height: 5rem;
   background: ${({ revealed }) => (revealed ? 'none' : '#ff5e5b')};
 
-  border-radius: 0.2rem;
   margin: 0.4rem;
-  .cover {
-    background: url(${FEImage});
-    width: 60%;
-    height: 60%;
-    background-size: contain;
-    background-position: center center;
-    background-repeat: no-repeat;
-  }
   .title,
+  .cover,
   .logo {
     border-radius: 0.2rem;
     width: 100%;
@@ -59,6 +29,18 @@ const Wrapper = styled.div`
       animation-fill-mode: both;
       animation: ${FlipInY} 1s;
     }
+    &.tada {
+      animation-fill-mode: both;
+      animation: ${Tada} 1s;
+    }
+  }
+  .cover {
+    background: url(${FEImage});
+    width: 60%;
+    height: 60%;
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
   }
   .title {
     display: flex;
@@ -83,51 +65,68 @@ const Wrapper = styled.div`
     background-repeat: no-repeat;
   }
 `;
-const Card = ({ id = 0, name = '', title = '', logoFilePath = '', revealed = false }) => {
-  const [state, dispatch] = useReducer(reducer, initialState);
-  const { logos, selects, hits } = state;
+let timer = null;
+const Card = ({
+  id = 0,
+  title = '',
+  logoFilePath = '',
+  reveals = [],
+  hits = [],
+  total,
+  playing,
+  setReveal,
+  resetReveal,
+  setWin
+}) => {
   const handleClick = () => {
-    const count = selects.length;
-    const [first] = selects;
-    switch (count) {
-      case 0:
-        dispatch({ type: 'ADD_SELECTS', data: { id } });
-        break;
-      case 1:
-        if (first.name === name) {
-          dispatch({ type: 'ADD_HITS', data: { name } });
-        } else {
-          dispatch({ type: 'ADD_SELECTS', data: { id } });
-        }
-        break;
-      case 2:
-        dispatch({ type: 'RESET_SELECTS', data: {} });
-        dispatch({ type: 'ADD_SELECTS', data: { id } });
-        break;
+    // 还没开始或者已经点了
+    if (!playing || reveals.includes(id)) {
+      if (!playing) {
+        alert('Click START button first!');
+      }
+      return;
     }
-    if (hits.length === logos.length) {
-      dispatch({ type: 'GOOD_JOB', data: {} });
+    clearTimeout(timer);
+    if (reveals.length == 2) {
+      resetReveal();
     }
-  };
-  // const getRevealed = id => {
-  //   let inSelects = !!selects.find(item => item.id === id);
-  //   let inHits = !!hits.find(item => item.id === id);
-  //   console.log('get revealed', inSelects, inHits);
+    setReveal(id);
+    // 成功
+    if (hits.length === total) {
+      console.log('win!');
 
-  //   return inSelects || inHits;
-  // };
-  // let revealed = getRevealed(id);
+      setWin();
+      return;
+    }
+    // 重置已翻牌的卡片
+    timer = setTimeout(() => {
+      resetReveal();
+    }, 6000);
+  };
+  const hited = hits.includes(id);
+  const revealed = reveals.includes(id) || hited;
   return (
     <Wrapper revealed={revealed} onClick={handleClick} logoFilePath={logoFilePath}>
-      {!revealed && <p className="cover" />}
+      {!revealed && <p className="cover flipInY" />}
       {revealed && title ? (
-        <p className="title flipInY">
+        <p className={`title ${hited ? `tada` : `flipInY`}`}>
           <span>{title}</span>
         </p>
       ) : null}
-      {revealed && logoFilePath ? <p className="logo flipInY" /> : null}
+      {revealed && logoFilePath ? <p className={`logo ${hited ? `tada` : `flipInY`}`} /> : null}
     </Wrapper>
   );
 };
-
-export default Card;
+const mapStateToProps = store => {
+  const { reveals, hits, data, playing } = store;
+  return { reveals, hits, playing, total: data.length };
+};
+const mapDispatchToProps = dispatch => ({
+  setReveal: bindActionCreators(setReveal, dispatch),
+  resetReveal: bindActionCreators(resetReveal, dispatch),
+  setWin: bindActionCreators(setWin, dispatch)
+});
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Card);

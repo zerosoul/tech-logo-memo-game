@@ -1,5 +1,6 @@
 export function shuffle(array) {
   let counter = array.length;
+  console.log('shuffle', array);
 
   // While there are elements in the array
   while (counter > 0) {
@@ -16,4 +17,11 @@ export function shuffle(array) {
   }
 
   return array;
+}
+
+export function getTimeFormated(count) {
+  return `${String(Math.floor(count / 60)).padStart(2, '0')}:${String(count % 60).padStart(
+    2,
+    '0'
+  )}`;
 }

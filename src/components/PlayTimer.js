@@ -1,5 +1,7 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
+import { getTimeFormated } from '../utils';
 
 const Wrapper = styled.aside`
   display: flex;
@@ -17,21 +19,38 @@ const Wrapper = styled.aside`
   }
 `;
 let interID = null;
-const PlayTimer = ({ playing }) => {
+const PlayTimer = ({ playing, win }) => {
+  const [time, setTime] = useState(0);
+  const [bestTime, setBestTime] = useState(Number(localStorage.getItem('BEST_TIME') || 0));
   useEffect(() => {
-    if (playing) {
-      interID = setInterval(() => {}, 1000);
+    console.log('time effect');
+
+    if (playing && !win) {
+      interID = setInterval(() => {
+        setTime(t => t + 1);
+      }, 1000);
+    } else {
+      clearInterval(interID);
+      let storeTime = Number(localStorage.getItem('BEST_TIME') || 0);
+      if (storeTime < time) {
+        setBestTime(time);
+        localStorage.setItem('BEST_TIME', time);
+      }
     }
     return () => {
       clearInterval(interID);
     };
-  }, [playing]);
+  }, [playing, time, win]);
   return (
     <Wrapper>
-      <p className="currTime">09:45</p>
-      <p className="bestTime">Best Time: 09:12</p>
+      {playing ? <p className="currTime">{getTimeFormated(time)}</p> : null}
+      <p className="bestTime">Best Time: {getTimeFormated(bestTime)}</p>
     </Wrapper>
   );
 };
 
-export default PlayTimer;
+const mapStateToProps = store => {
+  const { playing, win } = store;
+  return { playing, win };
+};
+export default connect(mapStateToProps)(PlayTimer);

@@ -1,5 +1,5 @@
-import React, { useReducer, useEffect } from 'react';
-import { initialState, reducer } from '../reducer';
+import React from 'react';
+import { connect } from 'react-redux';
 import Card from '../components/Card';
 import styled, { keyframes } from 'styled-components';
 
@@ -19,41 +19,34 @@ const Wrapper = styled.section`
   flex-wrap: wrap;
   justify-content: center;
   background-color: #fff1;
+  max-width: 50rem;
   padding: 0.8rem 0;
   margin: 0 0.2rem;
+  margin: 0 auto;
   animation-fill-mode: both;
   animation: ${FadeInUp} 1s;
 `;
-const Cards = () => {
-  const [state] = useReducer(reducer, initialState);
-  console.log('logos', state);
+const Cards = ({ logos }) => {
+  console.log('logos', logos);
 
-  const { logos: Logos, selects, hits } = state;
-  // const getRevealed = id => {
-  //   let inSelects = !!selects.find(item => item.id === id);
-  //   let inHits = !!hits.find(item => item.id === id);
-  //   console.log('get revealed', inSelects, inHits);
-
-  //   return inSelects || inHits;
-  // };
-  useEffect(() => {
-    console.log('666');
-  }, [selects, hits]);
+  // const { logos: Logos } = state;
   return (
     <Wrapper>
-      {Logos.map(logo => (
+      {logos.map(({ id, title, path, name, reveal, hit }) => (
         <Card
-          id={logo.id}
-          key={logo.id}
-          title={logo.title || ''}
-          logoFilePath={logo.path || ''}
-          name={logo.name}
-          revealed={
-            !!selects.find(item => item.id === logo.id) || hits.find(item => item.id === logo.id)
-          }
+          id={id}
+          key={id}
+          title={title || ''}
+          logoFilePath={path || ''}
+          name={name}
+          revealed={reveal}
+          hited={hit}
         />
       ))}
     </Wrapper>
   );
 };
-export default Cards;
+const mapStateToPorps = store => {
+  return { logos: store.data };
+};
+export default connect(mapStateToPorps)(Cards);

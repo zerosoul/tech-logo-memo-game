@@ -1,5 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { setStart } from '../redux/actions';
 
 const Button = styled.button`
   display: block;
@@ -21,8 +24,23 @@ const Button = styled.button`
   }
 `;
 
-const PlayButton = ({ started, handleStarted }) => {
-  return <Button onClick={handleStarted}>{started ? `restart` : `start`}</Button>;
+const PlayButton = ({ playing, setStart }) => {
+  const handleStarted = () => {
+    console.log('handle playing', playing);
+
+    setStart();
+  };
+  return <Button onClick={handleStarted}>{playing ? `restart` : `start`}</Button>;
 };
 
-export default PlayButton;
+const mapStateToProps = store => {
+  const { playing } = store;
+  return { playing };
+};
+const mapDispatchToProps = dispatch => ({
+  setStart: bindActionCreators(setStart, dispatch)
+});
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(PlayButton);
