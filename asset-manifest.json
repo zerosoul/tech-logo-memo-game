@@ -1,6 +1,6 @@
 {
-  "main.js": "/static/js/main.c18f5c.js",
-  "dll/react_60c9a1817021f749541a.dll.js": "/dll/react_60c9a1817021f749541a.dll.js",
-  "index.html": "/index.html",
-  "static/assets/fe.png": "/static/assets/fe.a7e4cc2e.png"
+  "main.js": "/frontend-memo-game/static/js/main.9e185e.js",
+  "dll/react_60c9a1817021f749541a.dll.js": "/frontend-memo-game/dll/react_60c9a1817021f749541a.dll.js",
+  "index.html": "/frontend-memo-game/index.html",
+  "static/assets/fe.png": "/frontend-memo-game/static/assets/fe.a7e4cc2e.png"
 }
