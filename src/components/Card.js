@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { setReveal, resetReveal, setWin } from '../redux/actions';
 import styled from 'styled-components';
-import { FlipInY, Tada } from './Animates';
+import { FlipInY, FlipInX, Tada } from './Animates';
 
 import FEImage from '../assets/img/fe.png';
 
@@ -15,7 +15,8 @@ const Wrapper = styled.div`
   cursor: pointer;
   width: 5rem;
   height: 5rem;
-  background: ${({ revealed }) => (revealed ? 'none' : '#ff5e5b')};
+  border: 1px solid #0003;
+  background: ${({ revealed }) => (revealed ? 'none' : '#fff1')};
 
   margin: 0.4rem;
   .title,
@@ -24,10 +25,15 @@ const Wrapper = styled.div`
     border-radius: 0.2rem;
     width: 100%;
     height: 100%;
-    backface-visibility: visible !important;
     &.flipInY {
+      /* backface-visibility: visible !important; */
       animation-fill-mode: both;
       animation: ${FlipInY} 1s;
+    }
+    &.flipInX {
+      /* backface-visibility: visible !important; */
+      animation-fill-mode: both;
+      animation: ${FlipInX} 1s;
     }
     &.tada {
       animation-fill-mode: both;
@@ -107,7 +113,7 @@ const Card = ({
   const revealed = reveals.includes(id) || hited;
   return (
     <Wrapper revealed={revealed} onClick={handleClick} logoFilePath={logoFilePath}>
-      {!revealed && <p className="cover flipInY" />}
+      {!revealed && <p className="cover flipInX" />}
       {revealed && title ? (
         <p className={`title ${hited ? `tada` : `flipInY`}`}>
           <span>{title}</span>

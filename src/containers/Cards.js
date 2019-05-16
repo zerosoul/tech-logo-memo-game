@@ -1,19 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Card from '../components/Card';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
+import { FadeInUp } from '../components/Animates';
 
-const FadeInUp = keyframes`
-  from {
-    opacity: 0;
-    transform: translate3d(0, 100%, 0);
-  }
-
-  to {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
-`;
 const Wrapper = styled.section`
   display: flex;
   flex-wrap: wrap;
