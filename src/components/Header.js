@@ -6,7 +6,7 @@ const Wrapper = styled.header`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 1.6rem 0;
+  padding: 1.4rem 0;
   h1 {
     font-size: 1.4rem;
     font-weight: 800;
