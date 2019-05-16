@@ -139,12 +139,16 @@ from {
     width: 100%;
     height: 100%;
     &.flipInY {
-      backface-visibility: visible !important;
+      -webkit-backface-visibility: visible;
+      backface-visibility: visible;
+      -webkit-animation-fill-mode: both;
       animation-fill-mode: both;
       animation: ${Et} 1s;
     }
     &.flipInX {
-      backface-visibility: visible !important;
+      -webkit-backface-visibility: visible;
+      backface-visibility: visible;
+      -webkit-animation-fill-mode: both;
       animation-fill-mode: both;
       animation: ${Pt} 1s;
     }
