@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux';
 import { setStart } from '../redux/actions';
 
 const Button = styled.button`
+  user-select: none;
   display: block;
   margin: 1rem auto;
   border: none;

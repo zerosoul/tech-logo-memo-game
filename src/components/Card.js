@@ -103,7 +103,7 @@ const Card = ({
   const handleClick = () => {
     console.log('card click', hits, total);
     // 还没开始或者已经点了
-    if (!playing || revealed) {
+    if (!playing || revealed || hited) {
       if (!playing) {
         setAlert();
       }
