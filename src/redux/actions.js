@@ -18,6 +18,20 @@ export const setWin = () => {
     data: {}
   };
 };
+export const setAlert = (alert = true) => {
+  console.log('set alert');
+  return {
+    type: 'SET_ALERT',
+    data: { alert }
+  };
+};
+export const setFinishAlert = (finishAlert = true) => {
+  console.log('set alert');
+  return {
+    type: 'SET_FINISH_ALERT',
+    data: { finishAlert }
+  };
+};
 export const setStart = () => {
   return {
     type: 'SET_START'

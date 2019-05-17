@@ -18,29 +18,38 @@ const Wrapper = styled.aside`
     margin-bottom: 0.5rem;
   }
 `;
+const getStoreTime = () => {
+  return Number(localStorage.getItem('BEST_TIME') || 0);
+};
 let interID = null;
 const PlayTimer = ({ playing, win }) => {
+  const storedTime = getStoreTime();
   const [time, setTime] = useState(0);
-  const [bestTime, setBestTime] = useState(Number(localStorage.getItem('BEST_TIME') || 0));
-  useEffect(() => {
-    console.log('time effect');
+  const [bestTime, setBestTime] = useState(storedTime);
 
-    if (playing && !win) {
+  useEffect(() => {
+    console.log('playing', playing);
+    if (playing) {
       interID = setInterval(() => {
         setTime(t => t + 1);
       }, 1000);
     } else {
+      console.log('clear1  playing', playing);
       clearInterval(interID);
-      let storeTime = Number(localStorage.getItem('BEST_TIME') || 0);
-      if (storeTime < time) {
+    }
+  }, [playing]);
+  useEffect(() => {
+    if (win && time !== 0) {
+      clearInterval(interID);
+      let storeTime = getStoreTime();
+      if (storeTime === 0 || storeTime > time) {
+        console.log('store best time', storeTime, time);
         setBestTime(time);
         localStorage.setItem('BEST_TIME', time);
       }
+      setTime(0);
     }
-    return () => {
-      clearInterval(interID);
-    };
-  }, [playing, time, win]);
+  }, [win, time]);
   return (
     <Wrapper>
       {playing ? <p className="currTime">{getTimeFormated(time)}</p> : null}
@@ -51,6 +60,7 @@ const PlayTimer = ({ playing, win }) => {
 
 const mapStateToProps = store => {
   const { playing, win } = store;
+  console.log('play timer store', playing, win);
   return { playing, win };
 };
 export default connect(mapStateToProps)(PlayTimer);

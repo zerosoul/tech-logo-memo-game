@@ -24,18 +24,18 @@ const Button = styled.button`
   }
 `;
 
-const PlayButton = ({ playing, setStart }) => {
+const PlayButton = ({ playing, win, setStart }) => {
   const handleStarted = () => {
     console.log('handle playing', playing);
 
     setStart();
   };
-  return <Button onClick={handleStarted}>{playing ? `restart` : `start`}</Button>;
+  return <Button onClick={handleStarted}>{playing || win ? `restart` : `start`}</Button>;
 };
 
 const mapStateToProps = store => {
-  const { playing } = store;
-  return { playing };
+  const { playing, win } = store;
+  return { playing, win };
 };
 const mapDispatchToProps = dispatch => ({
   setStart: bindActionCreators(setStart, dispatch)

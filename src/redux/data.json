@@ -1,7 +1,7 @@
 [
   {
     "name": "webpack",
-    "title": "webpack"
+    "title": "Webpack"
   },
   {
     "name": "gulp",
@@ -61,7 +61,7 @@
   },
   {
     "name": "sass",
-    "title": "Sass"
+    "title": "sass"
   },
   {
     "name": "vue",
