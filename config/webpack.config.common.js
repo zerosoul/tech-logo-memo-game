@@ -103,7 +103,7 @@ module.exports = {
       filename: '[name]_[hash].dll.js',
       path: './dll',
       entry: {
-        react: ['react', 'react-dom', 'redux', 'styled-components']
+        react: ['react', 'styled-components']
       }
     }),
     new InterpolateHtmlPlugin(env.raw),
