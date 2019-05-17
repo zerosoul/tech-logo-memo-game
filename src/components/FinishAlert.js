@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { bindActionCreators } from 'redux';
 
 import { connect } from 'react-redux';
@@ -70,6 +70,15 @@ const FinishAlert = ({ isVisible, setFinishAlert }) => {
   const handleClose = () => {
     setFinishAlert(false);
   };
+  useEffect(() => {
+    if (isVisible) {
+      window.scrollTo({
+        top: 100,
+        left: 100,
+        behavior: 'smooth'
+      });
+    }
+  }, [isVisible]);
   return isVisible ? (
     <Wrapper>
       <section className="alert">
