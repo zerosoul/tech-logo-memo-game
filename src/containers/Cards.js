@@ -8,7 +8,7 @@ const Wrapper = styled.section`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  background-color: #fff1;
+  background-color: #0001;
   max-width: 50rem;
   padding: 0.8rem 0;
   margin: 0 0.2rem;

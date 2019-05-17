@@ -39,6 +39,7 @@ const logos = (state = initStore, action = { type: '', data: {} }) => {
         // 命中了
         if (isBingo(reveals, currLogos)) {
           hits.push(...reveals);
+          reveals.length = 0;
         }
       }
       console.log('current hits', hits);

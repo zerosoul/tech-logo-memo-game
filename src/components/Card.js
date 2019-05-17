@@ -15,10 +15,14 @@ const Wrapper = styled.div`
   cursor: pointer;
   width: 5rem;
   height: 5rem;
-  border: 1px solid #0003;
+  border: 1px solid #0001;
+  border-radius: 0.2rem;
   background: ${({ revealed }) => (revealed ? 'none' : '#fff1')};
-
   margin: 0.4rem;
+  &.inReveal {
+    border-color: rgb(255, 237, 102);
+    border-width: 4px;
+  }
   .title,
   .cover,
   .logo {
@@ -94,7 +98,7 @@ const Card = ({
   useEffect(() => {
     setHited(hits.includes(id));
 
-    setRevealed(reveals.includes(id) || hits.includes(id));
+    setRevealed(reveals.includes(id));
   }, [reveals, hits, id]);
   const handleClick = () => {
     console.log('card click', hits, total);
@@ -119,15 +123,21 @@ const Card = ({
       resetReveal();
     }, 6000);
   };
+  const visible = revealed || hited;
   return (
-    <Wrapper revealed={revealed} onClick={handleClick} logoFilePath={logoFilePath}>
-      {!revealed && <p className="cover fadeIn" />}
-      {revealed && title ? (
+    <Wrapper
+      revealed={revealed}
+      className={`${revealed ? `inReveal` : ``}`}
+      onClick={handleClick}
+      logoFilePath={logoFilePath}
+    >
+      {!visible && <p className="cover fadeIn" />}
+      {visible && title ? (
         <p className={`title ${hited ? `tada` : `bounceIn`}`}>
           <span>{title}</span>
         </p>
       ) : null}
-      {revealed && logoFilePath ? <p className={`logo ${hited ? `tada` : `bounceIn`}`} /> : null}
+      {visible && logoFilePath ? <p className={`logo ${hited ? `tada` : `bounceIn`}`} /> : null}
     </Wrapper>
   );
 };
