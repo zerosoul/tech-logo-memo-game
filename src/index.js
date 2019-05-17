@@ -3,9 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import GlobalStyle from './Global.style';
 
-// import '@babel/core';
-
-import registerServiceWorker from './registerServiceWorker';
+import { unregister } from './registerServiceWorker';
 
 ReactDOM.render(
   <>
@@ -15,4 +13,4 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-registerServiceWorker();
+unregister();

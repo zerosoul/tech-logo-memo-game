@@ -35,8 +35,7 @@ module.exports = {
             test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
             loader: require.resolve('url-loader'),
             options: {
-              limit: 10000,
-              name: 'static/assets/[name].[hash:8].[ext]'
+              limit: 10000
             }
           },
           // babel loader
@@ -45,11 +44,6 @@ module.exports = {
             include: paths.appSrc,
             exclude: /node_modules/,
             use: 'happypack/loader'
-          },
-          // less loader
-          {
-            test: /\.less$/,
-            use: ['style-loader', 'css-loader']
           },
           // file-loader将所有静态文件可被WebpackDevServer伺服
           // 生产环境，这些静态文件会被拷贝到build目录
@@ -109,7 +103,7 @@ module.exports = {
       filename: '[name]_[hash].dll.js',
       path: './dll',
       entry: {
-        react: ['react', 'react-dom', 'styled-components']
+        react: ['react', 'react-dom', 'redux', 'styled-components']
       }
     }),
     new InterpolateHtmlPlugin(env.raw),
