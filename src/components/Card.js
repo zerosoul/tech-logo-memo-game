@@ -20,7 +20,7 @@ const Wrapper = styled.div`
   background: ${({ revealed }) => (revealed ? 'none' : '#fff1')};
   margin: 0.4rem;
   &.inReveal {
-    border-color: rgb(255, 237, 102);
+    border-color: rgb(255, 94, 91, 0.2);
     border-width: 4px;
   }
   .title,
