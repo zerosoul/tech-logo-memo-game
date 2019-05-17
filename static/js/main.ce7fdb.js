@@ -264,7 +264,7 @@ from {
     background-position: center center;
     background-repeat: no-repeat;
   }
-`;let Rt=null;var Lt=lt(t=>{const{reveals:e,hits:n,data:r,playing:i,win:o}=t;return{win:o,reveals:e,hits:n,playing:i,total:r.length}},t=>({setReveal:D(gt,t),resetReveal:D(mt,t),setWin:D(bt,t),setAlert:D(_t,t)}))(({id:t=0,title:e="",logoFilePath:n="",reveals:o=[],hits:a=[],total:u,playing:s,setReveal:c,resetReveal:l,setAlert:f,setWin:h})=>{const[p,v]=Object(r.useState)(!1),[d,y]=Object(r.useState)(!1);Object(r.useEffect)(()=>{y(a.includes(t)),v(o.includes(t))},[o,a,t]);const g=p||d;return i.a.createElement(jt,{revealed:p,className:`${p?"inReveal":""}`,onClick:()=>{s&&!p?(clearTimeout(Rt),c(t),a.length!==u?Rt=setTimeout(()=>{l()},6e3):h()):s||f()},logoFilePath:n},!g&&i.a.createElement("p",{className:"cover fadeIn"}),g&&e?i.a.createElement("p",{className:`title ${d?"tada":"bounceIn"}`},i.a.createElement("span",null,e)):null,g&&n?i.a.createElement("p",{className:`logo ${d?"tada":"bounceIn"}`}):null)});const Ct=Pt.default.section`
+`;let Rt=null;var Lt=lt(t=>{const{reveals:e,hits:n,data:r,playing:i,win:o}=t;return{win:o,reveals:e,hits:n,playing:i,total:r.length}},t=>({setReveal:D(gt,t),resetReveal:D(mt,t),setWin:D(bt,t),setAlert:D(_t,t)}))(({id:t=0,title:e="",logoFilePath:n="",reveals:o=[],hits:a=[],total:u,playing:s,setReveal:c,resetReveal:l,setAlert:f,setWin:h})=>{const[p,v]=Object(r.useState)(!1),[d,y]=Object(r.useState)(!1);Object(r.useEffect)(()=>{y(a.includes(t)),v(o.includes(t))},[o,a,t]);const g=p||d;return i.a.createElement(jt,{revealed:p,className:`${p?"inReveal":""}`,onClick:()=>{!s||p||d?s||f():(clearTimeout(Rt),c(t),a.length!==u?Rt=setTimeout(()=>{l()},6e3):h())},logoFilePath:n},!g&&i.a.createElement("p",{className:"cover fadeIn"}),g&&e?i.a.createElement("p",{className:`title ${d?"tada":"bounceIn"}`},i.a.createElement("span",null,e)):null,g&&n?i.a.createElement("p",{className:`logo ${d?"tada":"bounceIn"}`}):null)});const Ct=Pt.default.section`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -420,6 +420,7 @@ from {
     font-size: 0.6rem;
   }
 `;var qt=()=>i.a.createElement(Ft,null,i.a.createElement("h1",null,"FLMG © Tristan"),i.a.createElement("h2",null,"Inspired By"," ",i.a.createElement("a",{target:"_blank",rel:"noopener noreferrer",href:"https://codepen.io/davinci/pen/yVZapY"},"Brainymo")));const Wt=Pt.default.button`
+  user-select: none;
   display: block;
   margin: 1rem auto;
   border: none;
