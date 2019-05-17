@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Card from '../components/Card';
 import styled from 'styled-components';
 import { FadeInUp } from '../components/Animates';
+const Card = React.lazy(() => '../components/Card');
 
 const Wrapper = styled.section`
   display: flex;
