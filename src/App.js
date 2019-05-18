@@ -18,7 +18,7 @@ const Cards = React.lazy(() => {
   return new Promise(r => {
     setTimeout(() => {
       return r(tmp);
-    }, 200000);
+    }, 2000);
   });
 });
 
