@@ -25,30 +25,29 @@ const Wrapper = styled.div`
   justify-content: center;
   left: 0;
   padding: 0.4rem 0.6rem;
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.8);
   transition: all 1s;
   &.hidden {
-    transform: translateX(-74%);
+    transform: translateX(-78%);
   }
   .btn {
-    width: 1.5rem;
-    margin: 0 0.4rem;
+    width: 3.6rem;
     &:last-child {
       margin-right: 0;
     }
     &:first-child {
       margin-left: 0;
     }
-    &.withCount {
+    /* &.withCount {
       display: flex;
       flex-direction: column;
-    }
+    } */
   }
   .sep {
     width: 2px;
-    background: #666;
+    background: #ccc;
     height: 1.4rem;
-    margin-left: 0.4rem;
+    margin-right: 0.8rem;
   }
   .toggleBtn {
     width: 2rem;
@@ -57,7 +56,7 @@ const Wrapper = styled.div`
     line-height: 1.8;
     background: #ccc;
     color: #555;
-    border: 1px solid #666;
+    border: 1px solid #aaa;
     border-radius: 50%;
     cursor: pointer;
   }
