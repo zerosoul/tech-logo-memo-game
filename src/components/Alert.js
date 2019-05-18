@@ -19,9 +19,9 @@ const Wrapper = styled.div`
   background-color: #0005;
   .alert {
     /* max-width: 12rem; */
-    background: rgb(100, 206, 170);
+    background: #508a88;
     padding: 1.4rem 1.8rem;
-    border-radius: 0.4rem;
+    border-radius: 0.2rem;
     text-align: center;
     position: relative;
     animation-fill-mode: both;
@@ -36,7 +36,7 @@ const Wrapper = styled.div`
       padding-bottom: 1rem;
       .start {
         border: 1px solid #ddd5;
-        border-radius: 0.6rem;
+        border-radius: 1rem;
         padding: 0.4rem 0.8rem;
         background: #ffed66;
         color: #ff5e5b;

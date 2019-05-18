@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react';
 import { bindActionCreators } from 'redux';
-
 import { connect } from 'react-redux';
+
 import { setFinishAlert } from '../redux/actions';
 import styled from 'styled-components';
 import { SlideInDown } from './Animates';
+import { getTimeFormated } from '../utils';
+import Cards from '../containers/Cards';
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -19,9 +21,9 @@ const Wrapper = styled.div`
   background-color: #0005;
   .alert {
     /* max-width: 12rem; */
-    background: rgb(100, 206, 170);
-    padding: 1.4rem 1.8rem;
-    border-radius: 0.4rem;
+    background: #508a88;
+    padding: 1.4rem 0.4rem;
+    border-radius: 0.2rem;
     text-align: center;
     position: relative;
     animation-fill-mode: both;
@@ -30,21 +32,33 @@ const Wrapper = styled.div`
     .header {
       text-transform: uppercase;
       font-size: 1.8rem;
-      padding-bottom: 1.5rem;
+      padding-bottom: 1rem;
     }
     .content {
       font-size: 1rem;
       padding-bottom: 1rem;
       display: flex;
       flex-direction: column;
-      line-height: 2.4;
-      .start {
-        border: 1px solid #ddd5;
-        border-radius: 0.6rem;
-        padding: 0.4rem 0.8rem;
-        background: #ffed66;
-        color: #ff5e5b;
+      line-height: 1.2;
+      .time {
+        padding: 0 0.4rem;
         font-weight: 800;
+        font-size: 1.2rem;
+      }
+      .box {
+        margin-top: 1rem;
+        max-height: 70vh;
+        overflow: scroll;
+        position: relative;
+        .mask {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          opacity: 0;
+          z-index: 1000;
+        }
       }
     }
     .close {
@@ -66,7 +80,7 @@ const Wrapper = styled.div`
     }
   }
 `;
-const FinishAlert = ({ isVisible, setFinishAlert }) => {
+const FinishAlert = ({ isVisible, setFinishAlert, timeUsed }) => {
   const handleClose = () => {
     setFinishAlert(false);
   };
@@ -84,10 +98,13 @@ const FinishAlert = ({ isVisible, setFinishAlert }) => {
       <section className="alert">
         <h1 className="header">👍👍👍</h1>
         <p className="content">
-          <span>Greeeeeeeat Job!</span>
           <span>
-            You can click <span className="start">START</span> to try again!
+            <span className="time"> {getTimeFormated(timeUsed)}</span>Greeeeeeeat Job!
           </span>
+          <div className="box">
+            <div className="mask" />
+            <Cards />
+          </div>
         </p>
         <div className="close" onClick={handleClose}>
           x
@@ -97,8 +114,8 @@ const FinishAlert = ({ isVisible, setFinishAlert }) => {
   ) : null;
 };
 
-const mapStateToProps = ({ finishAlert }) => {
-  return { isVisible: finishAlert };
+const mapStateToProps = ({ finishAlert, currTimeUsed }) => {
+  return { isVisible: finishAlert, timeUsed: currTimeUsed };
 };
 const mapDispatchToProps = dispatch => ({
   setFinishAlert: bindActionCreators(setFinishAlert, dispatch)
