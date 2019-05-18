@@ -79,7 +79,7 @@ const Wrapper = styled.div`
       opacity: 1;
     }
     background: url(${({ logoFilePath }) => `${logoFilePath}`});
-    background-color: #ccc8;
+    background-color: #eee8;
 
     background-origin: content-box;
     padding: 1rem;
