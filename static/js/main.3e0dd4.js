@@ -367,7 +367,7 @@ from {
     text-align: center;
     line-height: 0.9;
   }
-`;let L=window.navigator.userAgent,R=!!L.match(/iPad/i)||!!L.match(/iPhone/i),C=!!L.match(/WebKit/i);const I=R&&C&&!L.match(/CriOS/i);var N=()=>{const[e,t]=Object(r.useState)(!0);Object(r.useEffect)(()=>{let e=!!Number(localStorage.getItem("IPHONE_ADD_HOME")||0);t(e)},[]);return I&&!e?o.a.createElement(T,null,"Install this web app on your iPhone.",o.a.createElement("i",{className:"close",onClick:()=>{t(!0),localStorage.setItem("IPHONE_ADD_HOME",1)}},"X"),o.a.createElement("img",{className:"homeImage",src:A.a,alt:"add home image"})):null};const M=g.default.button`
+`;let L=window.navigator.userAgent,R=!!L.match(/iPad/i)||!!L.match(/iPhone/i),C=!!L.match(/WebKit/i);const I=R&&C&&!L.match(/CriOS/i)&&!navigator.standalone;var N=()=>{const[e,t]=Object(r.useState)(!0);Object(r.useEffect)(()=>{let e=!!Number(localStorage.getItem("IPHONE_ADD_HOME")||0);t(e)},[]);return I&&!e?o.a.createElement(T,null,"Install this web app on your iPhone.",o.a.createElement("i",{className:"close",onClick:()=>{t(!0),localStorage.setItem("IPHONE_ADD_HOME",1)}},"X"),o.a.createElement("img",{className:"homeImage",src:A.a,alt:"add home image"})):null};const M=g.default.button`
   user-select: none;
   display: block;
   margin: 1rem auto;
