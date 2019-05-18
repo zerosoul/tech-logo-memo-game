@@ -1,4 +1,4 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[2],{114:function(a,e,t){"use strict";t.r(e);var o=t(0),r=t.n(o);const n=t(1).default.a`
+(window.webpackJsonp=window.webpackJsonp||[]).push([[2],{115:function(a,e,t){"use strict";t.r(e);var o=t(0),r=t.n(o);const n=t(1).default.a`
   &:hover .octo-arm {
     animation: octocat-wave 560ms ease-in-out;
   }
