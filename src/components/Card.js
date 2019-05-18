@@ -8,10 +8,10 @@ import { BounceIn, FadeIn, Tada } from './Animates';
 import FEImage from '../assets/img/fe.png';
 
 const Wrapper = styled.div`
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
   cursor: pointer;
   width: 5rem;
   height: 5rem;
@@ -19,6 +19,7 @@ const Wrapper = styled.div`
   border-radius: 0.2rem;
   background: ${({ revealed }) => (revealed ? 'none' : '#fff1')};
   margin: 0.4rem;
+  position: relative;
   &.inReveal {
     border-color: rgb(255, 94, 91, 0.2);
     border-width: 4px;
@@ -26,9 +27,12 @@ const Wrapper = styled.div`
   .title,
   .cover,
   .logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     border-radius: 0.2rem;
-    width: 100%;
-    height: 100%;
     &.bounceIn {
       -webkit-backface-visibility: visible;
       backface-visibility: visible;
@@ -49,9 +53,10 @@ const Wrapper = styled.div`
     }
   }
   .cover {
+    margin: 0 auto;
     background: url(${FEImage});
     width: 60%;
-    height: 60%;
+    height: 100%;
     background-size: contain;
     background-position: center center;
     background-repeat: no-repeat;
@@ -69,6 +74,10 @@ const Wrapper = styled.div`
     user-select: none;
   }
   .logo {
+    opacity: 0;
+    &.visible {
+      opacity: 1;
+    }
     background: url(${({ logoFilePath }) => `${logoFilePath}`});
     background-color: #fff9;
 
@@ -137,7 +146,9 @@ const Card = ({
           <span>{title}</span>
         </p>
       ) : null}
-      {visible && logoFilePath ? <p className={`logo ${hited ? `tada` : `bounceIn`}`} /> : null}
+      {logoFilePath ? (
+        <p className={`logo ${visible && 'bounceIn visible'} ${hited && `tada`}`} />
+      ) : null}
     </Wrapper>
   );
 };
