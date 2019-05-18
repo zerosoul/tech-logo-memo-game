@@ -7,6 +7,7 @@ import Alert from './components/Alert';
 import FinishAlert from './components/FinishAlert';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import AddHomePopup from './components/AddHomePopup';
 import PlayButton from './components/PlayButton';
 import Loading from './components/Loading';
 import PlayTimer from './components/PlayTimer';
@@ -17,6 +18,11 @@ const Cards = React.lazy(() => import('./containers/Cards'));
 const App = () => {
   return (
     <Provider store={store}>
+      <FinishAlert />
+      <Alert />
+      <PlayTimer />
+      <Header />
+      <PlayButton />
       <Suspense
         fallback={
           <Loading>
@@ -25,15 +31,11 @@ const App = () => {
         }
       >
         <Ribbon />
-        <FinishAlert />
-        <Alert />
         <Background />
-        <PlayTimer />
-        <Header />
-        <PlayButton />
         <Cards />
-        <Footer />
       </Suspense>
+      <AddHomePopup />
+      <Footer />
     </Provider>
   );
 };
