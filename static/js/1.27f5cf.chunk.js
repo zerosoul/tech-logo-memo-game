@@ -1,4 +1,4 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[1,4],{217:function(e,t,a){"use strict";a.r(t);a(86);var i=a(0),n=a.n(i),o=a(8),r=a(2),l=a(41);const s=n.a.lazy(()=>a.e(0).then(a.bind(null,218))),m=r.default.section`
+(window.webpackJsonp=window.webpackJsonp||[]).push([[1,4],{218:function(e,t,a){"use strict";a.r(t);a(87);var i=a(0),n=a.n(i),r=a(8),l=a(2),o=a(41);const s=n.a.lazy(()=>a.e(0).then(a.bind(null,219))),c=l.default.section`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -8,8 +8,8 @@
   margin: 0 0.2rem;
   margin: 0 auto;
   animation-fill-mode: both;
-  animation: ${l.c} 1s;
-`;t.default=Object(o.b)(e=>({logos:e.data}))(({logos:e})=>n.a.createElement(m,null,e.map(({id:e,title:t,path:a,name:i,reveal:o,hit:r})=>n.a.createElement(s,{id:e,key:e,title:t||"",logoFilePath:a||"",name:i,revealed:o,hited:r}))))},221:function(e,t,a){"use strict";a.r(t);var i=a(0),n=a.n(i),o=a(9),r=a(8),l=a(30),s=a(2),m=a(41),c=a(10),d=a(217);const f=s.default.div`
+  animation: ${o.c} 1s;
+`;t.default=Object(r.b)(e=>({logos:e.data}))(({logos:e})=>n.a.createElement(c,null,e.map(({id:e,title:t,path:a,name:i,reveal:r,hit:l})=>n.a.createElement(s,{id:e,key:e,title:t||"",logoFilePath:a||"",name:i,revealed:r,hited:l}))))},222:function(e,t,a){"use strict";a.r(t);var i=a(0),n=a.n(i),r=a(9),l=a(8),o=a(82),s=a(30),c=a(2),m=a(41),d=a(10),u=a(218),f=a(126);const p=c.default.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -21,6 +21,7 @@
   bottom: 0;
   z-index: 999;
   background-color: #0005;
+  margin: 0 1rem;
   .alert {
     /* max-width: 12rem; */
     background: #508a88;
@@ -30,7 +31,6 @@
     position: relative;
     animation-fill-mode: both;
     animation: ${m.d} 1s;
-    /* animation-delay: 1s; */
     .header {
       text-transform: uppercase;
       font-size: 1.8rem;
@@ -38,9 +38,10 @@
     }
     .content {
       font-size: 1rem;
-      padding-bottom: 1rem;
       display: flex;
       flex-direction: column;
+      align-items: center;
+
       line-height: 1.2;
       .time {
         padding: 0 0.4rem;
@@ -48,7 +49,7 @@
         font-size: 1.2rem;
       }
       .box {
-        margin-top: 1rem;
+        margin: 1rem auto;
         max-height: 60vh;
         overflow: scroll;
         position: relative;
@@ -81,4 +82,4 @@
       cursor: pointer;
     }
   }
-`;t.default=Object(r.b)(({finishAlert:e,currTimeUsed:t})=>({isVisible:e,timeUsed:t}),e=>({setFinishAlert:Object(o.a)(l.c,e)}))(({isVisible:e,setFinishAlert:t,timeUsed:a})=>{return Object(i.useEffect)(()=>{e&&window.scrollTo({top:100,left:100,behavior:"smooth"})},[e]),e?n.a.createElement(f,null,n.a.createElement("section",{className:"alert"},n.a.createElement("h1",{className:"header"},"👍👍👍"),n.a.createElement("p",{className:"content"},n.a.createElement("span",null,n.a.createElement("span",{className:"time"}," ",Object(c.a)(a)),"Greeeeeeeat Job!"),n.a.createElement("div",{className:"box"},n.a.createElement("div",{className:"mask"}),n.a.createElement(d.default,null))),n.a.createElement("div",{className:"close",onClick:()=>{t(!1)}},"x"))):null})}}]);
+`;t.default=Object(l.b)(({finishAlert:e,currTimeUsed:t})=>({isVisible:e,timeUsed:t}),e=>({setFinishAlert:Object(r.a)(s.c,e)}))(({isVisible:e,setFinishAlert:t,timeUsed:a})=>{const r=Object(i.useRef)(null);return Object(i.useEffect)(()=>{e&&(window.scrollTo({top:100,left:100,behavior:"smooth"}),Object(o.disableBodyScroll)(r.current))},[e]),e?n.a.createElement(p,{ref:r},n.a.createElement("section",{className:"alert"},n.a.createElement("h1",{className:"header"},"👍👍👍"),n.a.createElement("p",{className:"content"},n.a.createElement("span",null,n.a.createElement("span",{className:"time"}," ",Object(d.a)(a)),"Greeeeeeeat Job!"),n.a.createElement("div",{className:"box"},n.a.createElement("div",{className:"mask"}),n.a.createElement(u.default,null)),n.a.createElement(f.a,{toggle:!1})),n.a.createElement("div",{className:"close",onClick:()=>{Object(o.enableBodyScroll)(r.current),t(!1)}},"x"))):null})}}]);
