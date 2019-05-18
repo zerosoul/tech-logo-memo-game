@@ -21,6 +21,7 @@ let initStore = {
   data: initalState,
   reveals: [],
   hits: [],
+  currTimeUsed: 0,
   playing: false,
   win: false,
   alert: false,
@@ -46,6 +47,9 @@ const logos = (state = initStore, action = { type: '', data: {} }) => {
       return { ...state, reveals: [...reveals], hits };
     case 'RESET_REVEAL':
       return { ...state, reveals: [] };
+    case 'SET_TIME_USED':
+      const { currTimeUsed } = action.data;
+      return { ...state, currTimeUsed };
     case 'SET_WIN':
       return { ...state, win: true, playing: false, finishAlert: true };
     case 'SET_ALERT':
@@ -62,6 +66,7 @@ const logos = (state = initStore, action = { type: '', data: {} }) => {
         data: getRandomLogos(),
         reveals: [],
         hits: [],
+        currTimeUsed: 0,
         playing: true,
         win: false,
         finishAlert: false

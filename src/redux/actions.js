@@ -18,6 +18,12 @@ export const setWin = () => {
     data: {}
   };
 };
+export const setTimeUsed = (time = 0) => {
+  return {
+    type: 'SET_TIME_USED',
+    data: { currTimeUsed: time }
+  };
+};
 export const setAlert = (alert = true) => {
   console.log('set alert');
   return {
