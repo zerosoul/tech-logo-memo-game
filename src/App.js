@@ -13,7 +13,14 @@ import Loading from './components/Loading';
 import PlayTimer from './components/PlayTimer';
 const Ribbon = React.lazy(() => import('./components/Ribbon'));
 const Background = React.lazy(() => import('./components/ParticlesBackground'));
-const Cards = React.lazy(() => import('./containers/Cards'));
+const Cards = React.lazy(() => {
+  const tmp = import('./containers/Cards');
+  return new Promise(r => {
+    setTimeout(() => {
+      return r(tmp);
+    }, 200000);
+  });
+});
 
 const App = () => {
   return (
@@ -23,13 +30,7 @@ const App = () => {
       <PlayTimer />
       <Header />
       <PlayButton />
-      <Suspense
-        fallback={
-          <Loading>
-            <div className="tip">Loading...</div>
-          </Loading>
-        }
-      >
+      <Suspense fallback={<Loading />}>
         <Ribbon />
         <Background />
         <Cards />
