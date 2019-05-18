@@ -55,8 +55,7 @@ const Wrapper = styled.div`
 let ua = window.navigator.userAgent;
 let iOS = !!ua.match(/iPad/i) || !!ua.match(/iPhone/i);
 let webkit = !!ua.match(/WebKit/i);
-const MobileSafari = iOS && webkit && !ua.match(/CriOS/i);
-
+const MobileSafari = iOS && webkit && !ua.match(/CriOS/i) && !navigator.standalone;
 const AddHomePopup = () => {
   const [clicked, setClicked] = useState(true);
   useEffect(() => {
