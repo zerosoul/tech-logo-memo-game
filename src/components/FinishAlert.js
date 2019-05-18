@@ -1,12 +1,14 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 
 import { setFinishAlert } from '../redux/actions';
 import styled from 'styled-components';
 import { SlideInDown } from './Animates';
 import { getTimeFormated } from '../utils';
 import Cards from '../containers/Cards';
+import Share from './Share';
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -19,6 +21,7 @@ const Wrapper = styled.div`
   bottom: 0;
   z-index: 999;
   background-color: #0005;
+  margin: 0 1rem;
   .alert {
     /* max-width: 12rem; */
     background: #508a88;
@@ -28,7 +31,6 @@ const Wrapper = styled.div`
     position: relative;
     animation-fill-mode: both;
     animation: ${SlideInDown} 1s;
-    /* animation-delay: 1s; */
     .header {
       text-transform: uppercase;
       font-size: 1.8rem;
@@ -36,9 +38,10 @@ const Wrapper = styled.div`
     }
     .content {
       font-size: 1rem;
-      padding-bottom: 1rem;
       display: flex;
       flex-direction: column;
+      align-items: center;
+
       line-height: 1.2;
       .time {
         padding: 0 0.4rem;
@@ -46,7 +49,7 @@ const Wrapper = styled.div`
         font-size: 1.2rem;
       }
       .box {
-        margin-top: 1rem;
+        margin: 1rem auto;
         max-height: 60vh;
         overflow: scroll;
         position: relative;
@@ -81,7 +84,9 @@ const Wrapper = styled.div`
   }
 `;
 const FinishAlert = ({ isVisible, setFinishAlert, timeUsed }) => {
+  const modal = useRef(null);
   const handleClose = () => {
+    enableBodyScroll(modal.current);
     setFinishAlert(false);
   };
   useEffect(() => {
@@ -91,10 +96,11 @@ const FinishAlert = ({ isVisible, setFinishAlert, timeUsed }) => {
         left: 100,
         behavior: 'smooth'
       });
+      disableBodyScroll(modal.current);
     }
   }, [isVisible]);
   return isVisible ? (
-    <Wrapper>
+    <Wrapper ref={modal}>
       <section className="alert">
         <h1 className="header">👍👍👍</h1>
         <p className="content">
@@ -105,6 +111,7 @@ const FinishAlert = ({ isVisible, setFinishAlert, timeUsed }) => {
             <div className="mask" />
             <Cards />
           </div>
+          <Share toggle={false} />
         </p>
         <div className="close" onClick={handleClose}>
           x

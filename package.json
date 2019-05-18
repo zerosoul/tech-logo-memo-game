@@ -26,6 +26,7 @@
   },
   "homepage": "https://zerosoul.github.io/frontend-memo-game",
   "dependencies": {
+    "body-scroll-lock": "^2.6.1",
     "html2canvas": "^1.0.0-rc.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",

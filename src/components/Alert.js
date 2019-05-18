@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { bindActionCreators } from 'redux';
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 
 import { connect } from 'react-redux';
 import { setAlert } from '../redux/actions';
@@ -63,7 +64,9 @@ const Wrapper = styled.div`
   }
 `;
 const Alert = ({ isVisible, setAlert }) => {
+  const modal = useRef(null);
   const handleClose = () => {
+    enableBodyScroll(modal.current);
     setAlert(false);
   };
   useEffect(() => {
@@ -72,10 +75,11 @@ const Alert = ({ isVisible, setAlert }) => {
         top: 0,
         behavior: 'smooth'
       });
+      disableBodyScroll(modal.current);
     }
   }, [isVisible]);
   return isVisible ? (
-    <Wrapper>
+    <Wrapper ref={modal}>
       <section className="alert">
         <h1 className="header">☝️☝️☝️</h1>
         <p className="content">

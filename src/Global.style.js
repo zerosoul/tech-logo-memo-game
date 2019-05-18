@@ -18,6 +18,7 @@ const GlobalStyle = createGlobalStyle`
     font-family:"Fangzheng ZY", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei";
   }
   body{
+    -webkit-overflow-scrolling: touch;
     margin:0 auto;
     min-height:100vh;
     position: relative;
@@ -42,7 +43,7 @@ const GlobalStyle = createGlobalStyle`
   }
   @media screen and (min-width: 768px){
       html {
-          font-size: 22px;
+          font-size: 24px;
       }
   }
 `;

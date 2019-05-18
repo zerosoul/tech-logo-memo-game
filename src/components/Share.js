@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { getTimeFormated } from '../utils';
 
-import WeiboImage from '../assets/img/yarn.png';
 import ShareImage from '../assets/img/icon.png';
 import {
   FacebookShareButton,
@@ -17,26 +16,37 @@ import {
 } from 'react-share';
 
 const Wrapper = styled.div`
-  position: fixed;
-  z-index: 999;
-  bottom: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  left: 0;
   padding: 0.4rem 0.6rem;
-  background: rgba(255, 255, 255, 0.8);
+  background: none;
   transition: all 1s;
+  &.toggle {
+    position: fixed;
+    z-index: 999;
+    bottom: 1rem;
+    left: 0;
+    background: rgba(255, 255, 255, 0.8);
+  }
   &.hidden {
     transform: translateX(-78%);
   }
   .btn {
     width: 3.6rem;
+    &.wb img {
+      background: #624c44;
+      border-radius: 50%;
+      padding: 0.4rem;
+      box-sizing: content-box;
+      vertical-align: middle;
+    }
     &:last-child {
       margin-right: 0;
     }
     &:first-child {
       margin-left: 0;
+      text-align: left;
     }
     /* &.withCount {
       display: flex;
@@ -63,7 +73,7 @@ const Wrapper = styled.div`
 `;
 const shareUrl = `https://zerosoul.github.io/frontend-memo-game/`;
 let intTime = null;
-const Share = ({ currTimeUsed }) => {
+const Share = ({ currTimeUsed, toggle = true }) => {
   const [hidden, setHidden] = useState(false);
   useEffect(() => {
     intTime = setTimeout(() => {
@@ -73,6 +83,11 @@ const Share = ({ currTimeUsed }) => {
       clearTimeout(intTime);
     };
   }, []);
+  useEffect(() => {
+    if (!toggle) {
+      clearTimeout(intTime);
+    }
+  }, [toggle]);
   const handleToggle = () => {
     clearTimeout(intTime);
     setHidden(h => !h);
@@ -81,18 +96,18 @@ const Share = ({ currTimeUsed }) => {
     }, 4000);
   };
   return (
-    <Wrapper className={hidden && 'hidden'}>
+    <Wrapper className={`${hidden && 'hidden'} ${toggle && 'toggle'}`}>
       <WeiboShareButton
-        className="btn"
+        className="btn wb"
         url={shareUrl}
         title={`发现了一个好玩的游戏，用时${getTimeFormated(
           currTimeUsed,
           true
         )}，完成了挑战！前端图标千千万，快来试试连连看！`}
-        image={WeiboImage}
+        image={`https://zerosoul.github.io/frontend-memo-game/static/logos/yarn.png`}
       >
         <img
-          width="32"
+          width="20"
           src="https://img.icons8.com/color/48/000000/weibo.png"
           alt="Weibo share button"
         />
@@ -121,10 +136,15 @@ const Share = ({ currTimeUsed }) => {
       >
         <TwitterIcon size={32} round />
       </TwitterShareButton>
-      <i className="sep" />
-      <div onClick={handleToggle} className="toggleBtn btn">
-        {hidden ? `>>` : `<<`}
-      </div>
+
+      {toggle ? (
+        <>
+          <i className="sep" />
+          <div onClick={handleToggle} className="toggleBtn btn">
+            {hidden ? `>>` : `<<`}
+          </div>
+        </>
+      ) : null}
     </Wrapper>
   );
 };
