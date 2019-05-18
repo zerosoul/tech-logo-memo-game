@@ -49,7 +49,7 @@
       }
       .box {
         margin-top: 1rem;
-        max-height: 70vh;
+        max-height: 60vh;
         overflow: scroll;
         position: relative;
         .mask {
