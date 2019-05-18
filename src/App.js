@@ -19,7 +19,7 @@ const Cards = React.lazy(() => {
   return new Promise(r => {
     setTimeout(() => {
       return r(tmp);
-    }, 1000);
+    }, 2000);
   });
 });
 
