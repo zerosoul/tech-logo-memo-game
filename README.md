@@ -2,4 +2,4 @@
 
 [frontend logo memory game.](https://zerosoul.github.io/frontend-memo-game/)
 
-![demo](/demo.png)
+![demo](https://zerosoul.github.io/frontend-memo-game/demo.png)
