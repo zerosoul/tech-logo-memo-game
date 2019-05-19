@@ -15,7 +15,7 @@ const Wrapper = styled.div`
     background: #feeb70;
     appearance: none;
     -webkit-appearance: none;
-    padding: 0.4rem 0.8rem;
+    padding: 0.4rem 1rem;
     padding-right: 1.8rem;
     border-radius: 2rem;
     &[disabled] {

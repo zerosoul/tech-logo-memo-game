@@ -37,6 +37,7 @@
     "react-redux": "^7.0.3",
     "react-share": "^3.0.0",
     "redux": "^4.0.1",
+    "smooth-scroll-into-view-if-needed": "^1.1.23",
     "styled-components": "^4.2.0",
     "styled-reset": "^2.0.11"
   },

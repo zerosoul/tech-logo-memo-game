@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { bindActionCreators } from 'redux';
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
+import smoothScrollIntoView from 'smooth-scroll-into-view-if-needed';
 
 import { connect } from 'react-redux';
 import { setAlert } from '../redux/actions';
@@ -71,10 +72,8 @@ const Alert = ({ isVisible, setAlert }) => {
   };
   useEffect(() => {
     if (isVisible) {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
+      smoothScrollIntoView(document.getElementById('opt_container'), { behavior: 'smooth' });
+
       disableBodyScroll(modal.current);
     }
   }, [isVisible]);

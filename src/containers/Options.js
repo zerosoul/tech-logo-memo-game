@@ -20,7 +20,7 @@ const Wrapper = styled.div`
 `;
 const Options = () => {
   return (
-    <Wrapper>
+    <Wrapper id="opt_container">
       <div className="selects">
         <SrcDropdown />
         <LevelDropdown />

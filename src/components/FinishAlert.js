@@ -91,11 +91,6 @@ const FinishAlert = ({ isVisible, setFinishAlert, timeUsed }) => {
   };
   useEffect(() => {
     if (isVisible) {
-      window.scrollTo({
-        top: 100,
-        left: 100,
-        behavior: 'smooth'
-      });
       disableBodyScroll(modal.current);
     }
   }, [isVisible]);

@@ -16,7 +16,7 @@ const LevelDropdown = ({ level, playing, setLevel }) => {
       <select disabled={playing} onChange={handleLevelChange}>
         {[1, 2, 3].map(l => (
           <option key={l} value={l} selected={l == level}>
-            {`Level ${l}`}
+            {`Level${l}`}
           </option>
         ))}
       </select>

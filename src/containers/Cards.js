@@ -31,7 +31,7 @@ const Cards = ({ logos }) => {
   // const { logos: Logos } = state;
   const count = logos.length;
   return (
-    <Wrapper className={`c${count}`}>
+    <Wrapper id="card_container" className={`c${count}`}>
       {logos.map(({ id, title, path, name, reveal, hit }) => (
         <Card
           id={id}
