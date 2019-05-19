@@ -33,7 +33,7 @@ const sources = Object.values(Sources).map(v => {
 
 let initStore = {
   sources,
-  source: 'be',
+  source: 'fe',
   data: getRandomLogos(),
   level: 1,
   reveals: [],
