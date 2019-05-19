@@ -1,4 +1,4 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[1,4],{219:function(e,t,a){"use strict";a.r(t);a(86);var i=a(0),n=a.n(i),r=a(9),o=a(2),l=a(41);const c=n.a.lazy(()=>a.e(0).then(a.bind(null,220))),s=o.default.section`
+(window.webpackJsonp=window.webpackJsonp||[]).push([[1,4],{220:function(e,t,a){"use strict";a.r(t);a(86);var n=a(0),i=a.n(n),r=a(9),l=a(2),o=a(41);const c=i.a.lazy(()=>a.e(0).then(a.bind(null,221))),s=l.default.section`
   z-index: 996;
   display: flex;
   flex-wrap: wrap;
@@ -11,14 +11,14 @@
   margin: 0 0.2rem;
   margin: 0 auto;
   animation-fill-mode: both;
-  animation: ${l.c} 1s;
+  animation: ${o.c} 1s;
   &.c12 {
     max-width: 26rem;
   }
   &.c20 {
     max-width: 32rem;
   }
-`;t.default=Object(r.b)(e=>({logos:e.data}))(({logos:e})=>{const t=e.length;return n.a.createElement(s,{className:`c${t}`},e.map(({id:e,title:t,path:a,name:i,reveal:r,hit:o})=>n.a.createElement(c,{id:e,key:e,title:t||"",logoFilePath:a||"",name:i,revealed:r,hited:o})))})},223:function(e,t,a){"use strict";a.r(t);var i=a(0),n=a.n(i),r=a(10),o=a(9),l=a(82),c=a(40),s=a(2),m=a(41),d=a(8),u=a(219),f=a(125);const b=s.default.div`
+`;t.default=Object(r.b)(e=>({logos:e.data}))(({logos:e})=>{const t=e.length;return i.a.createElement(s,{id:"card_container",className:`c${t}`},e.map(({id:e,title:t,path:a,name:n,reveal:r,hit:l})=>i.a.createElement(c,{id:e,key:e,title:t||"",logoFilePath:a||"",name:n,revealed:r,hited:l})))})},224:function(e,t,a){"use strict";a.r(t);var n=a(0),i=a.n(n),r=a(10),l=a(9),o=a(82),c=a(40),s=a(2),m=a(41),d=a(8),u=a(220),f=a(125);const b=s.default.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -91,4 +91,4 @@
       cursor: pointer;
     }
   }
-`;t.default=Object(o.b)(({finishAlert:e,currTimeUsed:t})=>({isVisible:e,timeUsed:t}),e=>({setFinishAlert:Object(r.a)(c.c,e)}))(({isVisible:e,setFinishAlert:t,timeUsed:a})=>{const r=Object(i.useRef)(null);return Object(i.useEffect)(()=>{e&&(window.scrollTo({top:100,left:100,behavior:"smooth"}),Object(l.disableBodyScroll)(r.current))},[e]),e?n.a.createElement(b,{ref:r},n.a.createElement("section",{className:"alert"},n.a.createElement("h1",{className:"header"},"👍👍👍"),n.a.createElement("p",{className:"content"},n.a.createElement("span",null,n.a.createElement("span",{className:"time"}," ",Object(d.a)(a)),"Greeeeeeeat Job!"),n.a.createElement("div",{className:"box"},n.a.createElement("div",{className:"mask"}),n.a.createElement(u.default,null)),n.a.createElement(f.a,{toggle:!1})),n.a.createElement("div",{className:"close",onClick:()=>{Object(l.enableBodyScroll)(r.current),t(!1)}},"x"))):null})}}]);
+`;t.default=Object(l.b)(({finishAlert:e,currTimeUsed:t})=>({isVisible:e,timeUsed:t}),e=>({setFinishAlert:Object(r.a)(c.c,e)}))(({isVisible:e,setFinishAlert:t,timeUsed:a})=>{const r=Object(n.useRef)(null);return Object(n.useEffect)(()=>{e&&Object(o.disableBodyScroll)(r.current)},[e]),e?i.a.createElement(b,{ref:r},i.a.createElement("section",{className:"alert"},i.a.createElement("h1",{className:"header"},"👍👍👍"),i.a.createElement("p",{className:"content"},i.a.createElement("span",null,i.a.createElement("span",{className:"time"}," ",Object(d.a)(a)),"Greeeeeeeat Job!"),i.a.createElement("div",{className:"box"},i.a.createElement("div",{className:"mask"}),i.a.createElement(u.default,null)),i.a.createElement(f.a,{toggle:!1})),i.a.createElement("div",{className:"close",onClick:()=>{Object(o.enableBodyScroll)(r.current),t(!1)}},"x"))):null})}}]);
