@@ -69,7 +69,14 @@ const logos = (state = initStore, action = { type: '', data: {} }) => {
       return { ...state, currTimeUsed };
     case 'SET_DATA_SRC':
       const { src = 'fe' } = action.data;
-      return { ...state, data: getRandomLogos(Sources[src]), source: src, level: 1 };
+      return {
+        ...state,
+        data: getRandomLogos(Sources[src]),
+        source: src,
+        level: 1,
+        hits: [],
+        reveals: []
+      };
     case 'SET_WIN':
       return { ...state, win: true, playing: false, finishAlert: true };
     case 'SET_ALERT':
