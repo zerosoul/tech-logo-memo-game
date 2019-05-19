@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import ProductHunt from './ProductHunt';
 
 const Wrapper = styled.footer`
   display: flex;
@@ -19,6 +20,7 @@ const Wrapper = styled.footer`
 const Footer = () => {
   return (
     <Wrapper>
+      <ProductHunt />
       <h1>FLMG © Tristan</h1>
       <h2>
         Inspired By{' '}
