@@ -44,6 +44,7 @@ const PlayTimer = ({ playing, win, setTimeUsed, currTimeUsed }) => {
     } else {
       console.log('clear1  playing', playing);
       clearInterval(interID);
+      setTime(0);
     }
   }, [playing]);
   useEffect(() => {
