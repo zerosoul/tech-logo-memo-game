@@ -21,9 +21,9 @@
   bottom: 0;
   z-index: 999;
   background-color: #0005;
-  margin: 0 1rem;
   .alert {
     /* max-width: 12rem; */
+    margin: 0 1rem;
     background: #508a88;
     padding: 1.4rem 0.4rem;
     border-radius: 0.2rem;
