@@ -1,5 +1,5 @@
 {
-  "name": "technology-memo-game",
+  "name": "frontend-memo-game",
   "version": "1.0.0",
   "description": "technology logo memory game",
   "main": "index.js",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zerosoul/technology-memo-game.git"
+    "url": "git+https://github.com/zerosoul/frontend-memo-game.git"
   },
   "keywords": [
     "game",
@@ -25,9 +25,9 @@
   "author": "tristan",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/zerosoul/technology-memo-game/issues"
+    "url": "https://github.com/zerosoul/frontend-memo-game/issues"
   },
-  "homepage": "https://zerosoul.github.io/technology-memo-game",
+  "homepage": "https://zerosoul.github.io/frontend-memo-game",
   "dependencies": {
     "body-scroll-lock": "^2.6.1",
     "html2canvas": "^1.0.0-rc.1",
