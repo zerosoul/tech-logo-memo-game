@@ -2,11 +2,14 @@
 import Data from './data.json';
 import { shuffle } from '../utils';
 
-const getRandomLogos = () => {
-  let LogoTitles = Data.map(logo => {
+const getRandomLogos = (level = 1) => {
+  let RandomData = shuffle([...Data]);
+  let wtf = RandomData.length / (4 - level);
+  RandomData = RandomData.slice(0, wtf);
+  let LogoTitles = RandomData.map(logo => {
     return { name: logo.name, title: logo.title };
   });
-  let LogoPics = Data.map(logo => {
+  let LogoPics = RandomData.map(logo => {
     return { name: logo.name, path: `static/logos/${logo.name}.png` };
   });
   let tmp = shuffle([...LogoTitles, ...LogoPics]);
@@ -19,6 +22,7 @@ const initalState = getRandomLogos();
 
 let initStore = {
   data: initalState,
+  level: 1,
   reveals: [],
   hits: [],
   currTimeUsed: 0,
@@ -28,7 +32,7 @@ let initStore = {
   finishAlert: false
 };
 const logos = (state = initStore, action = { type: '', data: {} }) => {
-  const { reveals, hits, data: currLogos } = state;
+  const { reveals, hits, data: currLogos, playing, level: prevLevel } = state;
   switch (action.type) {
     case 'SET_REVEAL':
       const { id } = action.data;
@@ -44,7 +48,7 @@ const logos = (state = initStore, action = { type: '', data: {} }) => {
         }
       }
       console.log('current hits', hits);
-      return { ...state, reveals: [...reveals], hits };
+      return { ...state, reveals: [...reveals], hits: [...hits] };
     case 'RESET_REVEAL':
       return { ...state, reveals: [] };
     case 'SET_TIME_USED':
@@ -60,17 +64,26 @@ const logos = (state = initStore, action = { type: '', data: {} }) => {
       const { finishAlert } = action.data;
       console.log('finishAlert', action);
       return { ...state, finishAlert };
-    case 'SET_START':
-      console.log('set start');
-      return {
-        data: getRandomLogos(),
-        reveals: [],
-        hits: [],
-        currTimeUsed: 0,
-        playing: true,
-        win: false,
-        finishAlert: false
+    case 'SET_LEVEL':
+      const { level } = action.data;
+      console.log('reducer level', level);
+      const newStore = {
+        ...initStore,
+        data: getRandomLogos(level),
+        level
       };
+      console.log('new store', newStore);
+
+      return newStore;
+    case 'SET_START':
+      const startNew = {
+        ...initStore,
+        data: currLogos,
+        level: prevLevel,
+        playing: !playing
+      };
+      console.log('set start', startNew);
+      return startNew;
     default:
       return { ...state };
   }

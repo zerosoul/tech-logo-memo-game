@@ -24,6 +24,12 @@ export const setTimeUsed = (time = 0) => {
     data: { currTimeUsed: time }
   };
 };
+export const setLevel = (level = 1) => {
+  return {
+    type: 'SET_LEVEL',
+    data: { level }
+  };
+};
 export const setAlert = (alert = true) => {
   console.log('set alert');
   return {

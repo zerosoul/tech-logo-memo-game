@@ -35,6 +35,7 @@ const PlayTimer = ({ playing, win, setTimeUsed, currTimeUsed }) => {
   const [bestTime, setBestTime] = useState(storedTime);
 
   useEffect(() => {
+    console.log('1111111');
     console.log('playing', playing);
     if (playing) {
       interID = setInterval(() => {
@@ -46,6 +47,7 @@ const PlayTimer = ({ playing, win, setTimeUsed, currTimeUsed }) => {
     }
   }, [playing]);
   useEffect(() => {
+    console.log('222222222');
     if (win && time !== 0) {
       clearInterval(interID);
       setTimeUsed(time);
@@ -68,7 +70,6 @@ const PlayTimer = ({ playing, win, setTimeUsed, currTimeUsed }) => {
 
 const mapStateToProps = store => {
   const { playing, win, currTimeUsed } = store;
-  console.log('play timer store', playing, win);
   return { playing, win, currTimeUsed };
 };
 const mapDispatchToProps = dispatch => ({

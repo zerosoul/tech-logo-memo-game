@@ -31,7 +31,7 @@ const PlayButton = ({ playing, win, setStart }) => {
 
     setStart();
   };
-  return <Button onClick={handleStarted}>{playing || win ? `restart` : `start`}</Button>;
+  return <Button onClick={handleStarted}>{playing || win ? `reset` : `start`}</Button>;
 };
 
 const mapStateToProps = store => {

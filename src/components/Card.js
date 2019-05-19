@@ -108,7 +108,11 @@ const Card = ({
     setHited(hits.includes(id));
 
     setRevealed(reveals.includes(id));
-  }, [reveals, hits, id]);
+    if (!reveals.length && !hits.length) {
+      clearTimeout(timer);
+      resetReveal();
+    }
+  }, [reveals, hits, id, resetReveal]);
   const handleClick = () => {
     console.log('card click', hits, total);
     // 还没开始或者已经点了
@@ -116,6 +120,7 @@ const Card = ({
       if (!playing) {
         setAlert();
       }
+      clearTimeout(timer);
       return;
     }
     clearTimeout(timer);

@@ -7,7 +7,6 @@ import Alert from './components/Alert';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import AddHomePopup from './components/AddHomePopup';
-import PlayButton from './components/PlayButton';
 import Loading from './components/Loading';
 import PlayTimer from './components/PlayTimer';
 import Share from './components/Share';
@@ -19,7 +18,15 @@ const Cards = React.lazy(() => {
   return new Promise(r => {
     setTimeout(() => {
       return r(tmp);
-    }, 2000);
+    }, 20);
+  });
+});
+const Options = React.lazy(() => {
+  const tmp = import('./containers/Options');
+  return new Promise(r => {
+    setTimeout(() => {
+      return r(tmp);
+    }, 20);
   });
 });
 
@@ -30,8 +37,9 @@ const App = () => {
       <Alert />
       <PlayTimer />
       <Header />
-      <PlayButton />
+
       <Suspense fallback={<Loading />}>
+        <Options />
         <FinishAlert />
         <Ribbon />
         <Background />
