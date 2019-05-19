@@ -1,4 +1,4 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[1,4],{218:function(e,t,a){"use strict";a.r(t);a(87);var i=a(0),n=a.n(i),r=a(8),l=a(2),o=a(41);const s=n.a.lazy(()=>a.e(0).then(a.bind(null,219))),c=l.default.section`
+(window.webpackJsonp=window.webpackJsonp||[]).push([[1,4],{218:function(e,t,a){"use strict";a.r(t);a(86);var i=a(0),n=a.n(i),r=a(9),l=a(2),o=a(41);const s=n.a.lazy(()=>a.e(0).then(a.bind(null,219))),c=l.default.section`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -9,7 +9,7 @@
   margin: 0 auto;
   animation-fill-mode: both;
   animation: ${o.c} 1s;
-`;t.default=Object(r.b)(e=>({logos:e.data}))(({logos:e})=>n.a.createElement(c,null,e.map(({id:e,title:t,path:a,name:i,reveal:r,hit:l})=>n.a.createElement(s,{id:e,key:e,title:t||"",logoFilePath:a||"",name:i,revealed:r,hited:l}))))},222:function(e,t,a){"use strict";a.r(t);var i=a(0),n=a.n(i),r=a(9),l=a(8),o=a(82),s=a(30),c=a(2),m=a(41),d=a(10),u=a(218),f=a(126);const p=c.default.div`
+`;t.default=Object(r.b)(e=>({logos:e.data}))(({logos:e})=>n.a.createElement(c,null,e.map(({id:e,title:t,path:a,name:i,reveal:r,hit:l})=>n.a.createElement(s,{id:e,key:e,title:t||"",logoFilePath:a||"",name:i,revealed:r,hited:l}))))},222:function(e,t,a){"use strict";a.r(t);var i=a(0),n=a.n(i),r=a(14),l=a(9),o=a(82),s=a(40),c=a(2),m=a(41),d=a(8),u=a(218),f=a(125);const p=c.default.div`
   display: flex;
   flex-direction: column;
   align-items: center;
