@@ -42,7 +42,7 @@ const Wrapper = styled.a`
 const Ribbon = () => {
   return (
     <Wrapper
-      href="https://github.com/zerosoul/technology-memo-game"
+      href="https://github.com/zerosoul/frontend-memo-game"
       aria-label="View source on GitHub"
     >
       <svg width="80" height="80" viewBox="0 0 250 250" className="svg" aria-hidden="true">
