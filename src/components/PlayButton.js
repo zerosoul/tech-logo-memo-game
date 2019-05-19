@@ -7,7 +7,7 @@ import { setStart } from '../redux/actions';
 const Button = styled.button`
   user-select: none;
   display: block;
-  margin: 1rem auto;
+  /* margin: 1rem auto; */
   border: none;
   background: #ffed66;
   border-radius: 2rem;
@@ -25,18 +25,18 @@ const Button = styled.button`
   }
 `;
 
-const PlayButton = ({ playing, win, setStart }) => {
+const PlayButton = ({ playing, setStart }) => {
   const handleStarted = () => {
     console.log('handle playing', playing);
 
     setStart();
   };
-  return <Button onClick={handleStarted}>{playing || win ? `reset` : `start`}</Button>;
+  return <Button onClick={handleStarted}>{playing ? `reset` : `start`}</Button>;
 };
 
 const mapStateToProps = store => {
-  const { playing, win } = store;
-  return { playing, win };
+  const { playing } = store;
+  return { playing };
 };
 const mapDispatchToProps = dispatch => ({
   setStart: bindActionCreators(setStart, dispatch)

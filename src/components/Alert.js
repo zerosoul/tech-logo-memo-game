@@ -17,10 +17,10 @@ const Wrapper = styled.div`
   right: 0;
   bottom: 0;
   z-index: 999;
-  background-color: #0005;
+  background-color: #0006;
   .alert {
     /* max-width: 12rem; */
-    background: #508a88;
+    background: rgb(96, 108, 136);
     padding: 1.4rem 1.8rem;
     border-radius: 0.2rem;
     text-align: center;

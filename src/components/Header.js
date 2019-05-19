@@ -19,8 +19,8 @@ const Wrapper = styled.header`
 const Header = () => {
   return (
     <Wrapper>
-      <h1>🤔 FLMG 🤔</h1>
-      <h2>Frontend Logo Memory Game</h2>
+      <h1>🤔 LMG 🤔</h1>
+      <h2>Technology Logo Memory Game</h2>
     </Wrapper>
   );
 };

@@ -8,7 +8,7 @@ const Sources = {
   be: { type: 'be', data: BeData, title: 'backend' }
 };
 
-const getRandomLogos = (data = Sources.fe, level = 1) => {
+const getRandomLogos = (data = Sources.be, level = 1) => {
   const { type, data: logoData } = data;
 
   if (!logoData.length) return;
@@ -33,7 +33,7 @@ const sources = Object.values(Sources).map(v => {
 
 let initStore = {
   sources,
-  source: 'fe',
+  source: 'be',
   data: getRandomLogos(),
   level: 1,
   reveals: [],
@@ -84,7 +84,9 @@ const logos = (state = initStore, action = { type: '', data: {} }) => {
       const { level } = action.data;
       console.log('reducer level', level);
       const newStore = {
-        ...initStore,
+        ...state,
+        hits: [],
+        reveals: [],
         data: getRandomLogos(Sources[source], level),
         level
       };
@@ -93,9 +95,11 @@ const logos = (state = initStore, action = { type: '', data: {} }) => {
       return newStore;
     case 'SET_START':
       const startNew = {
-        ...initStore,
-        data: currLogos,
-        level: prevLevel,
+        ...state,
+        hits: [],
+        reveals: [],
+        data: getRandomLogos(Sources[source], prevLevel),
+        // level: prevLevel,
         playing: !playing
       };
       console.log('set start', startNew);

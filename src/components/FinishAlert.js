@@ -20,11 +20,11 @@ const Wrapper = styled.div`
   right: 0;
   bottom: 0;
   z-index: 999;
-  background-color: #0005;
+  background-color: #0006;
   .alert {
     /* max-width: 12rem; */
-    margin: 0 1rem;
-    background: #508a88;
+    margin: 1rem;
+    background: rgb(96, 108, 136);
     padding: 1.4rem 0.4rem;
     border-radius: 0.2rem;
     text-align: center;
@@ -41,8 +41,8 @@ const Wrapper = styled.div`
       display: flex;
       flex-direction: column;
       align-items: center;
-
       line-height: 1.2;
+      margin: 0 1.2rem;
       .time {
         padding: 0 0.4rem;
         font-weight: 800;

@@ -37,7 +37,7 @@ const Wrapper = styled.div`
     &.wb img {
       background: #624c44;
       border-radius: 50%;
-      padding: 0.4rem;
+      padding: 5px;
       box-sizing: content-box;
       vertical-align: middle;
     }
@@ -71,7 +71,7 @@ const Wrapper = styled.div`
     cursor: pointer;
   }
 `;
-const shareUrl = `https://zerosoul.github.io/frontend-memo-game/`;
+const shareUrl = `https://zerosoul.github.io/technology-memo-game/`;
 let intTime = null;
 const Share = ({ currTimeUsed, toggle = true }) => {
   const [hidden, setHidden] = useState(false);
@@ -104,7 +104,7 @@ const Share = ({ currTimeUsed, toggle = true }) => {
           currTimeUsed,
           true
         )}，完成了挑战！前端图标千千万，快来试试连连看！`}
-        image={`https://zerosoul.github.io/frontend-memo-game/static/logos/yarn.png`}
+        image={`https://zerosoul.github.io/technology-memo-game/static/logos/yarn.png`}
       >
         <img
           width="20"
@@ -128,7 +128,7 @@ const Share = ({ currTimeUsed, toggle = true }) => {
 
       <TwitterShareButton
         className="btn"
-        url={`https://zerosoul.github.io/frontend-memo-game/`}
+        url={`https://zerosoul.github.io/technology-memo-game/`}
         title={`😂Find a funny game, complete the challenge with time used ${getTimeFormated(
           currTimeUsed
         )}!`}

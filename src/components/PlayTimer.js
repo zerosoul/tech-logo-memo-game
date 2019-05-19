@@ -12,17 +12,34 @@ const Wrapper = styled.aside`
   justify-content: center;
   align-items: center;
   position: fixed;
-  top: 4.8rem;
-  left: 0;
-  font-size: 0.8rem;
-  background: #fff4;
+  bottom: 1rem;
+  right: 0;
+  font-size: 0.6rem;
+  background: rgb(255, 237, 102, 0.8);
   padding: 0.6rem;
   transition: all 1s;
+  font-weight: 800;
   &.playing {
-    transform: translateX(-95%);
+    opacity: 0.3;
   }
   > p:not(:last-child) {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.4rem;
+  }
+  .time {
+    color: rgb(255, 94, 91);
+    &.curr {
+      font-size: 0.8rem;
+      background: rgba(255, 237, 102);
+      padding: 0.4rem 0.8rem;
+      border-radius: 0.8rem;
+    }
+    &.best {
+      padding-top: 0.2rem;
+      border-top: 1px solid rgb(255, 94, 91);
+      .txt {
+        color: inherit;
+      }
+    }
   }
 `;
 const getStoreTime = () => {
@@ -63,8 +80,11 @@ const PlayTimer = ({ playing, win, setTimeUsed, currTimeUsed }) => {
   }, [win, time, setTimeUsed]);
   return (
     <Wrapper className={playing && 'playing'}>
-      <p className="currTime">{getTimeFormated(time || currTimeUsed)}</p>
-      <p className="bestTime">Best Time: {getTimeFormated(bestTime)}</p>
+      <p className="time curr">{getTimeFormated(time || currTimeUsed)}</p>
+      <p className="time best">
+        <span className="txt">BEST TIME: </span>
+        {getTimeFormated(bestTime)}
+      </p>
     </Wrapper>
   );
 };

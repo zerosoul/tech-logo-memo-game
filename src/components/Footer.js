@@ -11,7 +11,7 @@ const Wrapper = styled.footer`
   h1 {
     font-size: 1rem;
     font-weight: 800;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
   }
   h2 {
     font-size: 0.6rem;
@@ -21,7 +21,7 @@ const Footer = () => {
   return (
     <Wrapper>
       <ProductHunt />
-      <h1>FLMG © Tristan</h1>
+      <h1>LMG © Tristan</h1>
       <h2>
         Inspired By{' '}
         <a target="_blank" rel="noopener noreferrer" href="https://codepen.io/davinci/pen/yVZapY">

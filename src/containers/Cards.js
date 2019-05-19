@@ -5,6 +5,7 @@ import { FadeInUp } from '../components/Animates';
 const Card = React.lazy(() => import('../components/Card'));
 
 const Wrapper = styled.section`
+  z-index: 996;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -17,13 +18,20 @@ const Wrapper = styled.section`
   margin: 0 auto;
   animation-fill-mode: both;
   animation: ${FadeInUp} 1s;
+  &.c12 {
+    max-width: 26rem;
+  }
+  &.c20 {
+    max-width: 32rem;
+  }
 `;
 const Cards = ({ logos }) => {
   console.log('logos', logos);
 
   // const { logos: Logos } = state;
+  const count = logos.length;
   return (
-    <Wrapper>
+    <Wrapper className={`c${count}`}>
       {logos.map(({ id, title, path, name, reveal, hit }) => (
         <Card
           id={id}
