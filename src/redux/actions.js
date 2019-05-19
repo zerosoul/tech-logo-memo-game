@@ -30,6 +30,12 @@ export const setLevel = (level = 1) => {
     data: { level }
   };
 };
+export const setSource = (src = 'fe') => {
+  return {
+    type: 'SET_DATA_SRC',
+    data: { src }
+  };
+};
 export const setAlert = (alert = true) => {
   console.log('set alert');
   return {

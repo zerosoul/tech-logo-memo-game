@@ -11,7 +11,7 @@
 - [create-react-app](https://github.com/facebook/create-react-app): set up a modern react web app
 - [react](https://reactjs.org): programing language for user interface
 - redux + react-redux: react state management solution
-- [styled-compoents](https://styled-components.com): css in js
+- [styled-components](https://styled-components.com): css in js
 - eslint + prettier: code better code
 - husky + commitlint: add git hooks & git commit lint
 - [particles.js](https://vincentgarreau.com/particles.js/): amazing background effect

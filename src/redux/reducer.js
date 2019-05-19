@@ -1,27 +1,40 @@
 /* eslint-disable no-case-declarations */
-import Data from './data.json';
-import { shuffle } from '../utils';
+import FeData from './data.fe.json';
+import BeData from './data.be.json';
 
-const getRandomLogos = (level = 1) => {
-  let RandomData = shuffle([...Data]);
+import { shuffle } from '../utils';
+const Sources = {
+  fe: { type: 'fe', data: FeData, title: 'frontend' },
+  be: { type: 'be', data: BeData, title: 'backend' }
+};
+
+const getRandomLogos = (data = Sources.fe, level = 1) => {
+  const { type, data: logoData } = data;
+
+  if (!logoData.length) return;
+  let RandomData = shuffle([...logoData]);
   let wtf = RandomData.length / (4 - level);
   RandomData = RandomData.slice(0, wtf);
   let LogoTitles = RandomData.map(logo => {
     return { name: logo.name, title: logo.title };
   });
   let LogoPics = RandomData.map(logo => {
-    return { name: logo.name, path: `static/logos/${logo.name}.png` };
+    return { name: logo.name, path: `static/logos/${type}/${logo.name}.png` };
   });
   let tmp = shuffle([...LogoTitles, ...LogoPics]);
   return tmp.map((item, idx) => {
     return { ...item, id: idx + 1 };
   });
 };
-// 随机展示
-const initalState = getRandomLogos();
+
+const sources = Object.values(Sources).map(v => {
+  return { key: v.type, title: v.title };
+});
 
 let initStore = {
-  data: initalState,
+  sources,
+  source: 'fe',
+  data: getRandomLogos(),
   level: 1,
   reveals: [],
   hits: [],
@@ -32,7 +45,7 @@ let initStore = {
   finishAlert: false
 };
 const logos = (state = initStore, action = { type: '', data: {} }) => {
-  const { reveals, hits, data: currLogos, playing, level: prevLevel } = state;
+  const { reveals, hits, source, data: currLogos, playing, level: prevLevel } = state;
   switch (action.type) {
     case 'SET_REVEAL':
       const { id } = action.data;
@@ -54,6 +67,9 @@ const logos = (state = initStore, action = { type: '', data: {} }) => {
     case 'SET_TIME_USED':
       const { currTimeUsed } = action.data;
       return { ...state, currTimeUsed };
+    case 'SET_DATA_SRC':
+      const { src = 'fe' } = action.data;
+      return { ...state, data: getRandomLogos(Sources[src]), source: src, level: 1 };
     case 'SET_WIN':
       return { ...state, win: true, playing: false, finishAlert: true };
     case 'SET_ALERT':
@@ -69,7 +85,7 @@ const logos = (state = initStore, action = { type: '', data: {} }) => {
       console.log('reducer level', level);
       const newStore = {
         ...initStore,
-        data: getRandomLogos(level),
+        data: getRandomLogos(Sources[source], level),
         level
       };
       console.log('new store', newStore);
