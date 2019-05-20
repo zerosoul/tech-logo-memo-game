@@ -1,13 +1,14 @@
 {
   "name": "frontend-memo-game",
-  "version": "1.0.0",
+  "version": "2.2.0",
   "description": "technology logo memory game",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "NODE_ENV=development node scripts/start.js",
     "build": "NODE_ENV=production node scripts/build.js",
-    "deploy": "npm run build && gh-pages -d build"
+    "deploy": "npm run build && gh-pages -d build",
+    "version": "auto-changelog -p --release-summary -l false --template changelog.template.hbs && git add CHANGELOG.md"
   },
   "repository": {
     "type": "git",
@@ -50,6 +51,7 @@
     "@babel/preset-react": "^7.0.0",
     "@commitlint/cli": "^7.6.1",
     "@commitlint/config-conventional": "^7.6.0",
+    "auto-changelog": "^1.13.0",
     "autodll-webpack-plugin": "^0.4.2",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.6",
