@@ -14,9 +14,9 @@
 
 ![pc demo](public/demo.pc.png)
 
-# Features
+## Features
 
-## Functions
+### Functions
 
 - [x] Select technology scope
 - [x] Select play level: easy, medium and hard
@@ -27,7 +27,7 @@
 - [ ] Put play data into remote server
 - [ ] i18s
 
-## UX
+### UX
 
 - [x] Mobile friendly
 - [x] Animate properly
@@ -40,7 +40,7 @@
 - [x] Splash image for iPhone & iPad
 - [x] Dynamic background with canvas technology
 
-# Technology Stack
+## Technology Stack
 
 - [create-react-app](https://github.com/facebook/create-react-app): set up a modern react web app
 - [react](https://reactjs.org): programing language for user interface
@@ -49,3 +49,7 @@
 - eslint + prettier: code better code
 - husky + commitlint: add git hooks & git commit lint
 - [particles.js](https://vincentgarreau.com/particles.js/): amazing background effect
+
+## Changelog
+
+[Change log](CHANGELOG.md)

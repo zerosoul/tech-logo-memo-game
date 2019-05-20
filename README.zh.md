@@ -1,10 +1,8 @@
 # 技术图标连连看
 
-[English README](README.md)
+[English Version](README.md)
 
 [记忆+连连看](https://zerosoul.github.io/frontend-memo-game/)
-
-<a href="https://www.producthunt.com/posts/frontend-logo-memory-game?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-frontend-logo-memory-game" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=155856&theme=light" alt="Technology Logo Memory Game - How many frameworks can you guess right? | Product Hunt Embed" style="width: 250px; height: 54px;" width="250px" height="54px" /></a>
 
 ## 移动端展现
 
@@ -14,9 +12,9 @@
 
 ![电脑端展现截图](public/demo.pc.png)
 
-# 特性
+## 特性
 
-## 功能
+### 功能
 
 - [x] 可以选择技术栈
 - [x] 可以选择难度等级：容易、中等和困难
@@ -27,7 +25,7 @@
 - [ ] 数据动态化（非本地存储）
 - [ ] 国际化（中文展示）
 
-## 体验
+### 体验
 
 - [x] 移动端体验优先考虑
 - [x] 在合适的场景加入合适的动画，增加可玩性
@@ -40,7 +38,7 @@
 - [x] iPhone & iPad 本地打开，有引导屏
 - [x] 酷酷的动态背景，科技感十足
 
-# 技术栈
+## 技术栈
 
 - [create-react-app](https://github.com/facebook/create-react-app): 大家都在用的 react 项目构建架子
 - [react](https://reactjs.org): 最流行的前端 UI 构建语言
@@ -49,3 +47,11 @@
 - eslint + prettier: 为了更好地编码
 - husky + commitlint: 为了更好地 GIT 提交
 - [particles.js](https://vincentgarreau.com/particles.js/): 科技感十足的动态背景（借助 canvas 技术）
+
+## 更新日志
+
+[更新日志](CHANGELOG.md)
+
+## 寻求支持
+
+<a href="https://www.producthunt.com/posts/frontend-logo-memory-game?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-frontend-logo-memory-game" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=155856&theme=light" alt="Technology Logo Memory Game - How many frameworks can you guess right? | Product Hunt Embed" style="width: 250px; height: 54px;" width="250px" height="54px" /></a>
