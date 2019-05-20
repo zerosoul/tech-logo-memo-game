@@ -18,11 +18,11 @@ const Button = styled.button`
   font-size: 1.2rem;
   text-transform: uppercase;
   box-shadow: 0 3px 0 #ff5e5b;
-  transition: all 200ms linear;
+  transition: all 300ms ease;
   cursor: pointer;
-  &:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 7px 0 #ff5e5b;
+  &:active {
+    transform: translateY(4px);
+    box-shadow: 0 0 0 #ff5e5b;
   }
 `;
 
