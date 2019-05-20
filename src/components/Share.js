@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { getTimeFormated } from '../utils';
 
 import ShareImage from '../assets/img/icon.png';
+import WeiboIcon from '../assets/img/weibo.png';
 import {
   FacebookShareButton,
   FacebookIcon,
@@ -106,11 +107,7 @@ const Share = ({ currTimeUsed, toggle = true }) => {
         )}，完成了挑战！前端图标千千万，快来试试连连看！`}
         image={`https://zerosoul.github.io/frontend-memo-game/static/logos/yarn.png`}
       >
-        <img
-          width="20"
-          src="https://img.icons8.com/color/48/000000/weibo.png"
-          alt="Weibo share button"
-        />
+        <img width="20" src={WeiboIcon} alt="Weibo share button" />
       </WeiboShareButton>
       {/* <p className="withCount btn"> */}
       <FacebookShareButton
