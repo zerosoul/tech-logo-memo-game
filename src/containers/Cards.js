@@ -35,13 +35,14 @@ const Cards = ({ logos, compact = false }) => {
   const count = logos.length;
   return (
     <Wrapper id="card_container" className={`c${count} ${compact && 'compact'}`}>
-      {logos.map(({ id, title, path, name, reveal, hit }) => (
+      {logos.map(({ id, title, path, type, name, reveal, hit }) => (
         <Card
           mini={compact}
           id={id}
           key={id}
           title={title || ''}
           logoFilePath={path || ''}
+          type={type}
           name={name}
           revealed={reveal}
           hited={hit}

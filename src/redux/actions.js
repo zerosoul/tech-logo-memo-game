@@ -36,6 +36,12 @@ export const setSource = (src = 'fe') => {
     data: { src }
   };
 };
+export const setPlayType = (type = 'title_vs_logo') => {
+  return {
+    type: 'SET_PLAY_TYPE',
+    data: { playType: type }
+  };
+};
 export const setAlert = (alert = true) => {
   console.log('set alert');
   return {

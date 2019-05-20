@@ -1,14 +1,20 @@
 /* eslint-disable no-case-declarations */
-import { Sources } from '../const';
+import { Sources, PlayTypes } from '../const';
 
-import { getRandomLogos } from '../utils';
+import { getRandomLogos, getDataByPlayType } from '../utils';
 
 const sources = Object.values(Sources).map(v => {
   return { key: v.type, title: v.title };
 });
 
+const playTypes = Object.values(PlayTypes).map(v => {
+  return { key: v.type, title: v.title };
+});
+
 let initStore = {
   sources,
+  playTypes,
+  playType: 'title_vs_logo',
   source: 'fe',
   data: getRandomLogos(),
   level: 'easy',
@@ -21,7 +27,15 @@ let initStore = {
   finishAlert: false
 };
 const logos = (state = initStore, action = { type: '', data: {} }) => {
-  const { reveals, hits, source, data: currLogos, playing, level: prevLevel } = state;
+  const {
+    reveals,
+    hits,
+    source,
+    data: currLogos,
+    playing,
+    playType: currPlayType,
+    level: prevLevel
+  } = state;
   switch (action.type) {
     case 'SET_REVEAL':
       const { id } = action.data;
@@ -47,9 +61,21 @@ const logos = (state = initStore, action = { type: '', data: {} }) => {
       const { src = 'fe' } = action.data;
       return {
         ...state,
-        data: getRandomLogos(Sources[src]),
+        data: getDataByPlayType(getRandomLogos(Sources[src]), currPlayType),
         source: src,
         level: 'easy',
+        hits: [],
+        reveals: []
+      };
+    case 'SET_PLAY_TYPE':
+      const { playType } = action.data;
+      const newData = getDataByPlayType(currLogos, playType);
+      console.log('new play type data', newData);
+
+      return {
+        ...state,
+        data: newData,
+        playType,
         hits: [],
         reveals: []
       };
@@ -70,7 +96,7 @@ const logos = (state = initStore, action = { type: '', data: {} }) => {
         ...state,
         hits: [],
         reveals: [],
-        data: getRandomLogos(Sources[source], level),
+        data: getDataByPlayType(getRandomLogos(Sources[source], level), currPlayType),
         level
       };
       console.log('new store', newStore);
@@ -82,7 +108,7 @@ const logos = (state = initStore, action = { type: '', data: {} }) => {
         win: false,
         hits: [],
         reveals: [],
-        data: getRandomLogos(Sources[source], prevLevel),
+        data: getDataByPlayType(getRandomLogos(Sources[source], prevLevel), currPlayType),
         // level: prevLevel,
         playing: !playing
       };

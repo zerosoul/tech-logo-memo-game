@@ -19,7 +19,8 @@
 - [x] Select technology scope
 - [x] Select play level: easy, medium and hard
 - [x] Share the play result to weibo, twitter and facebook
-- [x] Record the best time by different level
+- [x] Remember the best time by different level
+- [ ] Suport **LOGO vs LOGO** and **TITLE vs LOGO**, two play types
 - [ ] Full screening play
 - [ ] Web APP: PWA
 - [ ] Put play data into remote server

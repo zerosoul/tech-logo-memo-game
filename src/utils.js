@@ -3,6 +3,29 @@ import { Sources, Levels } from './const';
 export const getSourceTitle = (key = 'fe') => {
   return Sources[key].title;
 };
+export const getDataByPlayType = (data = [], playType = 'title_vs_logo') => {
+  console.log('new play playtype from reducer', playType, data);
+  let names = [];
+
+  const newData = data.map(item => {
+    const { name } = item;
+    if (playType === 'title_vs_logo') {
+      console.log('names', names.includes(name));
+      if (names.indexOf(name) === -1) {
+        names.push(name);
+
+        return { ...item, type: 'title' };
+      } else {
+        return { ...item, type: 'logo' };
+      }
+    }
+    if (playType === 'logo_vs_logo') {
+      return { ...item, type: 'logo' };
+    }
+    return item;
+  });
+  return shuffle([...newData]);
+};
 export const getRandomLogos = (data = Sources.be, level = 'easy') => {
   const { type, data: logoData } = data;
 
@@ -11,13 +34,22 @@ export const getRandomLogos = (data = Sources.be, level = 'easy') => {
   let wtf = RandomData.length / Levels[level];
   RandomData = RandomData.slice(0, wtf);
   let LogoTitles = RandomData.map(logo => {
-    return { name: logo.name, title: logo.title };
+    return {
+      name: logo.name,
+      title: logo.title,
+      path: `static/logos/${type}/${logo.name}.png`,
+      type: 'title'
+    };
   });
   let LogoPics = RandomData.map(logo => {
-    return { name: logo.name, path: `static/logos/${type}/${logo.name}.png` };
+    return {
+      name: logo.name,
+      path: `static/logos/${type}/${logo.name}.png`,
+      title: logo.title,
+      type: 'logo'
+    };
   });
-  let tmp = shuffle([...LogoTitles, ...LogoPics]);
-  return tmp.map((item, idx) => {
+  return shuffle([...shuffle(LogoTitles), ...LogoPics]).map((item, idx) => {
     return { ...item, id: idx + 1 };
   });
 };
