@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-
+import { Levels } from '../const';
 import { setLevel } from '../redux/actions';
 import StyledDropdown from './styled/Dropdown';
 
@@ -14,9 +14,9 @@ const LevelDropdown = ({ level, playing, setLevel }) => {
   return (
     <StyledDropdown>
       <select disabled={playing} onChange={handleLevelChange}>
-        {[1, 2, 3].map(l => (
+        {Object.keys(Levels).map(l => (
           <option key={l} value={l} selected={l == level}>
-            {`Level${l}`}
+            {l.toUpperCase()}
           </option>
         ))}
       </select>

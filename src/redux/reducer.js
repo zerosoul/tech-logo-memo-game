@@ -1,31 +1,7 @@
 /* eslint-disable no-case-declarations */
-import FeData from './data.fe.json';
-import BeData from './data.be.json';
+import { Sources } from '../const';
 
-import { shuffle } from '../utils';
-const Sources = {
-  fe: { type: 'fe', data: FeData, title: 'frontend' },
-  be: { type: 'be', data: BeData, title: 'backend' }
-};
-
-const getRandomLogos = (data = Sources.be, level = 1) => {
-  const { type, data: logoData } = data;
-
-  if (!logoData.length) return;
-  let RandomData = shuffle([...logoData]);
-  let wtf = RandomData.length / (4 - level);
-  RandomData = RandomData.slice(0, wtf);
-  let LogoTitles = RandomData.map(logo => {
-    return { name: logo.name, title: logo.title };
-  });
-  let LogoPics = RandomData.map(logo => {
-    return { name: logo.name, path: `static/logos/${type}/${logo.name}.png` };
-  });
-  let tmp = shuffle([...LogoTitles, ...LogoPics]);
-  return tmp.map((item, idx) => {
-    return { ...item, id: idx + 1 };
-  });
-};
+import { getRandomLogos } from '../utils';
 
 const sources = Object.values(Sources).map(v => {
   return { key: v.type, title: v.title };
@@ -35,7 +11,7 @@ let initStore = {
   sources,
   source: 'fe',
   data: getRandomLogos(),
-  level: 1,
+  level: 'easy',
   reveals: [],
   hits: [],
   currTimeUsed: 0,
@@ -73,7 +49,7 @@ const logos = (state = initStore, action = { type: '', data: {} }) => {
         ...state,
         data: getRandomLogos(Sources[src]),
         source: src,
-        level: 1,
+        level: 'easy',
         hits: [],
         reveals: []
       };

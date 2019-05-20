@@ -16,7 +16,7 @@ const SrcDropdown = ({ sources, source, playing, setSource }) => {
       <select disabled={playing} onChange={handleLevelChange}>
         {sources.map(src => (
           <option key={src.key} value={src.key} selected={src.key == source}>
-            {src.title}
+            {src.title.toUpperCase()}
           </option>
         ))}
       </select>

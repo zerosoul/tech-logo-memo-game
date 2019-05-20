@@ -1,3 +1,23 @@
+import { Sources, Levels } from './const';
+
+export const getRandomLogos = (data = Sources.be, level = 'easy') => {
+  const { type, data: logoData } = data;
+
+  if (!logoData.length) return;
+  let RandomData = shuffle([...logoData]);
+  let wtf = RandomData.length / Levels[level];
+  RandomData = RandomData.slice(0, wtf);
+  let LogoTitles = RandomData.map(logo => {
+    return { name: logo.name, title: logo.title };
+  });
+  let LogoPics = RandomData.map(logo => {
+    return { name: logo.name, path: `static/logos/${type}/${logo.name}.png` };
+  });
+  let tmp = shuffle([...LogoTitles, ...LogoPics]);
+  return tmp.map((item, idx) => {
+    return { ...item, id: idx + 1 };
+  });
+};
 export function shuffle(array) {
   let counter = array.length;
   console.log('shuffle', array);
