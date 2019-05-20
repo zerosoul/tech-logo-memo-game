@@ -1,8 +1,8 @@
 # LMG
 
-<a href="https://www.producthunt.com/posts/frontend-logo-memory-game?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-frontend-logo-memory-game" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=155856&theme=light" alt="Frontend Logo Memory Game - How many frameworks can you guess right? | Product Hunt Embed" style="width: 250px; height: 54px;" width="250px" height="54px" /></a>
+<a href="https://www.producthunt.com/posts/frontend-logo-memory-game?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-frontend-logo-memory-game" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=155856&theme=light" alt="Technology Logo Memory Game - How many frameworks can you guess right? | Product Hunt Embed" style="width: 250px; height: 54px;" width="250px" height="54px" /></a>
 
-[Frontend Logo Memory Game.](https://zerosoul.github.io/frontend-memo-game/)
+[Technology Logo Memory Game.](https://zerosoul.github.io/frontend-memo-game/)
 
 ## Mobile UI
 
@@ -11,6 +11,30 @@
 ## Desktop UI
 
 ![pc demo](https://zerosoul.github.io/frontend-memo-game/demo.pc.png)
+
+# Features
+
+## Functions
+
+- [x] Select technology scope
+- [x] Select play level: easy, medium and hard
+- [x] Share the play result to weibo, twitter and facebook
+- [x] Record the best time by different level
+- [ ] Web APP: PWA
+- [ ] Put play data into remote server
+
+## UX
+
+- [x] Mobile friendly
+- [x] Animate properly
+- [x] Dynamic display card box in different screen sizes for superfluous cards
+- [x] Pick the color combination elaborately
+- [x] Scroll into view smoothly when start and alert
+- [x] Auto fold or translucent while playing
+- [x] Compress the images for better loading experience
+- [x] Favicons for different device display sizes
+- [x] Splash image for iPhone & iPad
+- [x] Dynamic background with canvas technology
 
 # Technology Stack
 
