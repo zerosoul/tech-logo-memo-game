@@ -4,9 +4,9 @@
 
 [记忆+连连看](https://zerosoul.github.io/frontend-memo-game/)
 
-## 移动端展现
+## 移动端
 
-![移动端展现截图](public/demo.mobile.png)
+![移动端展现截图](public/demo.mobile.gif)
 
 ## 电脑端展现
 
