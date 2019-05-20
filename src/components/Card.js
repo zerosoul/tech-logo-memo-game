@@ -14,6 +14,9 @@ const Wrapper = styled.div`
   &.mini {
     width: 4rem;
     height: 4rem;
+    .title {
+      font-size: 0.6rem;
+    }
   }
   border: 1px solid #0001;
   border-radius: 0.2rem;
