@@ -1,5 +1,8 @@
 import { Sources, Levels } from './const';
 
+export const getSourceTitle = (key = 'fe') => {
+  return Sources[key].title;
+};
 export const getRandomLogos = (data = Sources.be, level = 'easy') => {
   const { type, data: logoData } = data;
 

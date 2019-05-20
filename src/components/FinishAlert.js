@@ -9,6 +9,7 @@ import { SlideInDown } from './Animates';
 import { getTimeFormated } from '../utils';
 import Cards from '../containers/Cards';
 import Share from './Share';
+import { getSourceTitle } from '../utils';
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -43,10 +44,14 @@ const Wrapper = styled.div`
       align-items: center;
       line-height: 1.2;
       margin: 0 1.2rem;
-      .time {
-        padding: 0 0.4rem;
+      em {
+        padding: 0.2rem 0.6rem;
+        margin: 0 0.2rem;
+        border-radius: 1rem;
+        color: #333;
         font-weight: 800;
-        font-size: 1.2rem;
+        background: #ffed66;
+        opacity: 0.8;
       }
       .box {
         margin: 1rem auto;
@@ -83,7 +88,7 @@ const Wrapper = styled.div`
     }
   }
 `;
-const FinishAlert = ({ isVisible, setFinishAlert, timeUsed }) => {
+const FinishAlert = ({ isVisible, setFinishAlert, timeUsed, source, level }) => {
   const modal = useRef(null);
   const handleClose = () => {
     enableBodyScroll(modal.current);
@@ -100,7 +105,9 @@ const FinishAlert = ({ isVisible, setFinishAlert, timeUsed }) => {
         <h1 className="header">👍👍👍</h1>
         <p className="content">
           <span>
-            <span className="time"> {getTimeFormated(timeUsed)}</span>Greeeeeeeat Job!
+            <em>{getSourceTitle(source).toUpperCase()}</em>at<em>{level.toUpperCase()}</em>
+            level:
+            <em>{getTimeFormated(timeUsed)}</em>
           </span>
           <div className="box">
             <div className="mask" />
@@ -116,8 +123,8 @@ const FinishAlert = ({ isVisible, setFinishAlert, timeUsed }) => {
   ) : null;
 };
 
-const mapStateToProps = ({ finishAlert, currTimeUsed }) => {
-  return { isVisible: finishAlert, timeUsed: currTimeUsed };
+const mapStateToProps = ({ finishAlert, currTimeUsed, source, level }) => {
+  return { isVisible: finishAlert, timeUsed: currTimeUsed, source, level };
 };
 const mapDispatchToProps = dispatch => ({
   setFinishAlert: bindActionCreators(setFinishAlert, dispatch)
