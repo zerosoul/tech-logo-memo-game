@@ -8,13 +8,13 @@ import { BounceIn, FadeIn, Tada } from './Animates';
 import FEImage from '../assets/img/fe.png';
 
 const Wrapper = styled.div`
-  /* display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center; */
   cursor: pointer;
   width: 5rem;
   height: 5rem;
+  &.mini {
+    width: 4rem;
+    height: 4rem;
+  }
   border: 1px solid #0001;
   border-radius: 0.2rem;
   background: ${({ revealed }) => (revealed ? 'none' : '#fff1')};
@@ -90,6 +90,7 @@ const Wrapper = styled.div`
 `;
 let timer = null;
 const Card = ({
+  mini = false,
   id = 0,
   title = '',
   logoFilePath = '',
@@ -108,11 +109,11 @@ const Card = ({
     setHited(hits.includes(id));
 
     setRevealed(reveals.includes(id));
-    if (!reveals.length && !hits.length) {
-      clearTimeout(timer);
-      resetReveal();
-    }
-  }, [reveals, hits, id, resetReveal]);
+    // if (!reveals.length && !hits.length) {
+    //   clearTimeout(timer);
+    //   resetReveal();
+    // }
+  }, [reveals, hits, id]);
   const handleClick = () => {
     console.log('card click', hits, total);
     // 还没开始或者已经点了
@@ -141,7 +142,7 @@ const Card = ({
   return (
     <Wrapper
       revealed={revealed}
-      className={`${revealed ? `inReveal` : ``}`}
+      className={`${revealed && `inReveal`} ${mini && `mini`} `}
       onClick={handleClick}
       logoFilePath={logoFilePath}
     >

@@ -36,23 +36,38 @@ const Wrapper = styled.aside`
     &.best {
       padding-top: 0.2rem;
       border-top: 1px solid rgb(255, 94, 91);
-      .txt {
-        color: inherit;
+      display: flex;
+      flex-direction: column;
+      thead tr th {
+        color: rgb(255, 94, 91);
+        text-align: center;
+        padding-bottom: 0.4rem;
+        border-bottom: 1px solid #ccc4;
+      }
+      tbody tr td {
+        color: rgb(255, 94, 91);
+        border: 1px solid #b3989833;
+        padding: 0.2rem;
       }
     }
   }
 `;
 const getStoreTime = () => {
-  return Number(localStorage.getItem('BEST_TIME') || 0);
+  let str = localStorage.getItem('BEST_LEVEL_TIME') || '{}';
+  try {
+    JSON.parse(str);
+    return JSON.parse(str);
+  } catch (e) {
+    return {};
+  }
 };
 let interID = null;
-const PlayTimer = ({ playing, win, setTimeUsed, currTimeUsed }) => {
+const PlayTimer = ({ playing, win, level, setTimeUsed, currTimeUsed }) => {
   const storedTime = getStoreTime();
   const [time, setTime] = useState(0);
   const [bestTime, setBestTime] = useState(storedTime);
 
   useEffect(() => {
-    console.log('1111111');
     console.log('playing', playing);
     if (playing) {
       interID = setInterval(() => {
@@ -65,33 +80,48 @@ const PlayTimer = ({ playing, win, setTimeUsed, currTimeUsed }) => {
     }
   }, [playing]);
   useEffect(() => {
-    console.log('222222222');
     if (win && time !== 0) {
       clearInterval(interID);
       setTimeUsed(time);
       let storeTime = getStoreTime();
-      if (storeTime === 0 || storeTime > time) {
+      if (!storeTime[level] || storeTime[level] > time) {
         console.log('store best time', storeTime, time);
-        setBestTime(time);
-        localStorage.setItem('BEST_TIME', time);
+        storeTime[level] = time;
+        setBestTime(storeTime);
+        localStorage.setItem('BEST_LEVEL_TIME', JSON.stringify(storeTime));
       }
       setTime(0);
     }
-  }, [win, time, setTimeUsed]);
+  }, [win, time, setTimeUsed, level]);
   return (
     <Wrapper className={playing && 'playing'}>
       <p className="time curr">{getTimeFormated(time || currTimeUsed)}</p>
-      <p className="time best">
-        <span className="txt">BEST TIME: </span>
-        {getTimeFormated(bestTime)}
-      </p>
+      {!!Object.keys(bestTime).length && (
+        <table className="time best">
+          <thead>
+            <tr>
+              <th>BEST TIME</th>
+            </tr>
+          </thead>
+          <tbody>
+            {Object.keys(bestTime).map(level => {
+              return (
+                <tr key={level}>
+                  <td>{level.toUpperCase()}</td>
+                  <td>{getTimeFormated(bestTime[level])}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      )}
     </Wrapper>
   );
 };
 
 const mapStateToProps = store => {
-  const { playing, win, currTimeUsed } = store;
-  return { playing, win, currTimeUsed };
+  const { playing, win, currTimeUsed, level } = store;
+  return { playing, win, currTimeUsed, level };
 };
 const mapDispatchToProps = dispatch => ({
   setTimeUsed: bindActionCreators(setTimeUsed, dispatch)

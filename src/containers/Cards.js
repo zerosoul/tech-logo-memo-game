@@ -10,6 +10,9 @@ const Wrapper = styled.section`
   flex-wrap: wrap;
   justify-content: center;
   min-height: 60vh;
+  &.compact {
+    min-height: unset;
+  }
   align-content: center;
   background-color: #0001;
   max-width: 50rem;
@@ -25,15 +28,16 @@ const Wrapper = styled.section`
     max-width: 32rem;
   }
 `;
-const Cards = ({ logos }) => {
+const Cards = ({ logos, compact = false }) => {
   console.log('logos', logos);
 
   // const { logos: Logos } = state;
   const count = logos.length;
   return (
-    <Wrapper id="card_container" className={`c${count}`}>
+    <Wrapper id="card_container" className={`c${count} ${compact && 'compact'}`}>
       {logos.map(({ id, title, path, name, reveal, hit }) => (
         <Card
+          mini={compact}
           id={id}
           key={id}
           title={title || ''}

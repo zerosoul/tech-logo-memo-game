@@ -104,7 +104,7 @@ const FinishAlert = ({ isVisible, setFinishAlert, timeUsed }) => {
           </span>
           <div className="box">
             <div className="mask" />
-            <Cards />
+            <Cards compact={window.screen.availWidth < 640} />
           </div>
           <Share toggle={false} />
         </p>

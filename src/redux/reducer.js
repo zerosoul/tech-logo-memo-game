@@ -79,6 +79,7 @@ const logos = (state = initStore, action = { type: '', data: {} }) => {
     case 'SET_START':
       const startNew = {
         ...state,
+        win: false,
         hits: [],
         reveals: [],
         data: getRandomLogos(Sources[source], prevLevel),
