@@ -55,7 +55,7 @@ const Wrapper = styled.div`
 let ua = window.navigator.userAgent;
 let iOS = !!ua.match(/iPad/i) || !!ua.match(/iPhone/i);
 let webkit = !!ua.match(/WebKit/i);
-const MobileSafari = iOS && webkit && !ua.match(/CriOS/i) && !navigator.standalone;
+const MobileDeviceSafari = iOS && webkit && !ua.match(/CriOS/i) && !navigator.standalone;
 const AddHomePopup = () => {
   const [clicked, setClicked] = useState(true);
   useEffect(() => {
@@ -66,7 +66,7 @@ const AddHomePopup = () => {
     setClicked(true);
     localStorage.setItem('IPHONE_ADD_HOME', 1);
   };
-  return MobileSafari && !clicked ? (
+  return MobileDeviceSafari && !clicked ? (
     <Wrapper>
       Install this web app on your iPhone.
       <i className="close" onClick={handleCloseClick}>

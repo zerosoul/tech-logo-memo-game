@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import PageVisibility from 'react-page-visibility';
+
 import { setTimeUsed } from '../redux/actions';
 
 import { getTimeFormated } from '../utils';
@@ -64,21 +66,24 @@ const getStoreTime = () => {
 let interID = null;
 const PlayTimer = ({ playing, win, level, setTimeUsed, currTimeUsed }) => {
   const storedTime = getStoreTime();
+  const [paused, setPaused] = useState(false);
   const [time, setTime] = useState(0);
   const [bestTime, setBestTime] = useState(storedTime);
 
   useEffect(() => {
     console.log('playing', playing);
-    if (playing) {
+    if (playing && !paused) {
       interID = setInterval(() => {
         setTime(t => t + 1);
       }, 1000);
     } else {
       console.log('clear1  playing', playing);
       clearInterval(interID);
-      setTime(0);
+      if (!paused) {
+        setTime(0);
+      }
     }
-  }, [playing]);
+  }, [playing, paused]);
   useEffect(() => {
     if (win && time !== 0) {
       clearInterval(interID);
@@ -93,29 +98,34 @@ const PlayTimer = ({ playing, win, level, setTimeUsed, currTimeUsed }) => {
       setTime(0);
     }
   }, [win, time, setTimeUsed, level]);
+  const handleVisibilityChange = isVisible => {
+    setPaused(!isVisible);
+  };
   return (
-    <Wrapper className={playing && 'playing'}>
-      <p className="time curr">{getTimeFormated(time || currTimeUsed)}</p>
-      {!!Object.keys(bestTime).length && (
-        <table className="time best">
-          <thead>
-            <tr>
-              <th>BEST TIME</th>
-            </tr>
-          </thead>
-          <tbody>
-            {Object.keys(bestTime).map(level => {
-              return (
-                <tr key={level}>
-                  <td>{level.toUpperCase()}</td>
-                  <td>{getTimeFormated(bestTime[level])}</td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-      )}
-    </Wrapper>
+    <PageVisibility onChange={handleVisibilityChange}>
+      <Wrapper className={playing && 'playing'}>
+        <p className="time curr">{getTimeFormated(time || currTimeUsed)}</p>
+        {!!Object.keys(bestTime).length && (
+          <table className="time best">
+            <thead>
+              <tr>
+                <th>BEST TIME</th>
+              </tr>
+            </thead>
+            <tbody>
+              {Object.keys(bestTime).map(level => {
+                return (
+                  <tr key={level}>
+                    <td>{level.toUpperCase()}</td>
+                    <td>{getTimeFormated(bestTime[level])}</td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        )}
+      </Wrapper>
+    </PageVisibility>
   );
 };
 

@@ -6,7 +6,7 @@ import smoothScrollIntoView from 'smooth-scroll-into-view-if-needed';
 import { connect } from 'react-redux';
 import { setAlert } from '../redux/actions';
 import styled from 'styled-components';
-import { SlideInUp } from './Animates';
+import { BounceIn } from './Animates';
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -27,7 +27,7 @@ const Wrapper = styled.div`
     text-align: center;
     position: relative;
     animation-fill-mode: both;
-    animation: ${SlideInUp} 1s;
+    animation: ${BounceIn} 1s;
     .header {
       text-transform: uppercase;
       font-size: 1.8rem;
