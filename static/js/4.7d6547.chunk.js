@@ -21,4 +21,4 @@
   &.c20 {
     max-width: 32rem;
   }
-`;t.default=Object(c.b)(e=>({logos:e.data}))(({logos:e,compact:t=!1})=>{const a=e.length;return i.a.createElement(r,{id:"card_container",className:`c${a} ${t&&"compact"}`},e.map(({id:e,title:a,path:n,name:c,reveal:o,hit:m})=>i.a.createElement(l,{mini:t,id:e,key:e,title:a||"",logoFilePath:n||"",name:c,revealed:o,hited:m})))})}}]);
+`;t.default=Object(c.b)(e=>({logos:e.data}))(({logos:e,compact:t=!1})=>{const a=e.length;return i.a.createElement(r,{id:"card_container",className:`c${a} ${t&&"compact"}`},e.map(({id:e,title:a,path:n,type:c,name:o,reveal:m,hit:r})=>i.a.createElement(l,{mini:t,id:e,key:e,title:a||"",logoFilePath:n||"",type:c,name:o,revealed:m,hited:r})))})}}]);
