@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import GithubStar from './GithubStar';
 
 const Wrapper = styled.header`
   display: flex;
@@ -13,14 +14,21 @@ const Wrapper = styled.header`
     margin-bottom: 1rem;
   }
   h2 {
+    display: flex;
     font-size: 0.8rem;
+    span {
+      margin-right: 0.4rem;
+    }
   }
 `;
 const Header = () => {
   return (
     <Wrapper>
       <h1>🤔 LMG 🤔</h1>
-      <h2>Technology Logo Memory Game</h2>
+      <h2>
+        <span>Technology Logo Memory Game</span>
+        <GithubStar />
+      </h2>
     </Wrapper>
   );
 };
