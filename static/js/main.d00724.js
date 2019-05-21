@@ -312,6 +312,7 @@ var r=window.document,o=(r.location,window.encodeURIComponent),i=(window.decodeU
   }
   h2 {
     display: flex;
+    align-items: center;
     font-size: 0.8rem;
     span {
       margin-right: 0.4rem;
