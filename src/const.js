@@ -6,6 +6,11 @@ export const Sources = {
   be: { type: 'be', data: BeData, title: 'backend' }
 };
 
+export const PlayTypes = {
+  title_vs_logo: { type: 'title_vs_logo', title: 'title vs logo' },
+  logo_vs_logo: { type: 'logo_vs_logo', title: 'logo vs logo' }
+};
+
 export const Levels = {
   easy: 3,
   medium: 2,

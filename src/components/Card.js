@@ -97,6 +97,7 @@ const Card = ({
   id = 0,
   title = '',
   logoFilePath = '',
+  type,
   reveals = [],
   hits = [],
   total,
@@ -150,12 +151,12 @@ const Card = ({
       logoFilePath={logoFilePath}
     >
       {!visible && <p className="cover fadeIn" />}
-      {visible && title ? (
+      {visible && type === 'title' ? (
         <p className={`title ${hited ? `tada` : `bounceIn`}`}>
           <span>{title}</span>
         </p>
       ) : null}
-      {logoFilePath ? (
+      {type === 'logo' ? (
         <p className={`logo ${visible && 'bounceIn visible'} ${hited && `tada`}`} />
       ) : null}
     </Wrapper>
