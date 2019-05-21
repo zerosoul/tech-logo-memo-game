@@ -14,10 +14,10 @@ const playTypes = Object.values(PlayTypes).map(v => {
 let initStore = {
   sources,
   playTypes,
-  playType: 'title_vs_logo',
-  source: 'fe',
+  playType: localStorage.getItem('PLAY_TYPE') || 'title_vs_logo',
+  source: localStorage.getItem('SRC') || 'fe',
   data: getRandomLogos(),
-  level: 'easy',
+  level: localStorage.getItem('LEVEL') || 'easy',
   reveals: [],
   hits: [],
   currTimeUsed: 0,
@@ -59,6 +59,8 @@ const logos = (state = initStore, action = { type: '', data: {} }) => {
       return { ...state, currTimeUsed };
     case 'SET_DATA_SRC':
       const { src = 'fe' } = action.data;
+      localStorage.setItem('SRC', src);
+      localStorage.setItem('LEVEL', 'easy');
       return {
         ...state,
         data: getDataByPlayType(getRandomLogos(Sources[src]), currPlayType),
@@ -71,7 +73,7 @@ const logos = (state = initStore, action = { type: '', data: {} }) => {
       const { playType } = action.data;
       const newData = getDataByPlayType(currLogos, playType);
       console.log('new play type data', newData);
-
+      localStorage.setItem('PLAY_TYPE', playType);
       return {
         ...state,
         data: newData,
@@ -91,7 +93,7 @@ const logos = (state = initStore, action = { type: '', data: {} }) => {
       return { ...state, finishAlert };
     case 'SET_LEVEL':
       const { level } = action.data;
-      console.log('reducer level', level);
+      localStorage.setItem('LEVEL', level);
       const newStore = {
         ...state,
         hits: [],
