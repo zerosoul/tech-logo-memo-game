@@ -15,6 +15,7 @@ const Wrapper = styled.header`
   }
   h2 {
     display: flex;
+    align-items: center;
     font-size: 0.8rem;
     span {
       margin-right: 0.4rem;
