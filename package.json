@@ -9,7 +9,7 @@
     "build": "NODE_ENV=production node scripts/build.js",
     "pushcode": "git push --no-verify",
     "deploy": "npm run build && gh-pages -d build",
-    "version": "auto-changelog -p --release-summary -l false --template changelog.template.hbs && git add CHANGELOG.md && git commit --no-verify CHANGELOG.md -m 'docs(changelog): update changelog'"
+    "version": "auto-changelog -p --release-summary -l false --template changelog.template.hbs && git add CHANGELOG.md"
   },
   "repository": {
     "type": "git",
