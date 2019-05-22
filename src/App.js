@@ -13,20 +13,13 @@ import Share from './components/Share';
 const FinishAlert = React.lazy(() => import('./components/FinishAlert'));
 const Ribbon = React.lazy(() => import('./components/Ribbon'));
 const Background = React.lazy(() => import('./components/ParticlesBackground'));
+const Options = React.lazy(() => import('./containers/Options'));
 const Cards = React.lazy(() => {
   const tmp = import('./containers/Cards');
   return new Promise(r => {
     setTimeout(() => {
       return r(tmp);
-    }, 20);
-  });
-});
-const Options = React.lazy(() => {
-  const tmp = import('./containers/Options');
-  return new Promise(r => {
-    setTimeout(() => {
-      return r(tmp);
-    }, 20);
+    }, 1000);
   });
 });
 
