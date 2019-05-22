@@ -1,4 +1,4 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[1,4],{223:function(e,t,a){"use strict";a.r(t);a(87);var n=a(0),r=a.n(n),i=a(10),l=a(2),o=a(42);const c=r.a.lazy(()=>a.e(0).then(a.bind(null,224))),m=l.default.section`
+(window.webpackJsonp=window.webpackJsonp||[]).push([[1,4],{226:function(e,t,a){"use strict";a.r(t);a(12),a(87),a(24);var n=a(0),r=a.n(n),i=a(6),l=a(2),c=a(42);const o=r.a.lazy(()=>a.e(0).then(a.bind(null,227))),m=l.default.section`
   z-index: 996;
   display: flex;
   flex-wrap: wrap;
@@ -14,14 +14,14 @@
   margin: 0 0.2rem;
   margin: 0 auto;
   animation-fill-mode: both;
-  animation: ${o.c} 1s;
+  animation: ${c.c} 1s;
   &.c12 {
     max-width: 26rem;
   }
   &.c20 {
     max-width: 32rem;
   }
-`;t.default=Object(i.b)(e=>({logos:e.data}))(({logos:e,compact:t=!1})=>{const a=e.length;return r.a.createElement(m,{id:"card_container",className:`c${a} ${t&&"compact"}`},e.map(({id:e,title:a,path:n,type:i,name:l,reveal:o,hit:m})=>r.a.createElement(c,{mini:t,id:e,key:e,title:a||"",logoFilePath:n||"",type:i,name:l,revealed:o,hited:m})))})},227:function(e,t,a){"use strict";a.r(t);var n=a(0),r=a.n(n),i=a(11),l=a(10),o=a(83),c=a(41),m=a(2),s=a(42),d=a(4),u=a(223),p=a(126);const f=m.default.div`
+`;t.default=Object(i.b)(e=>({logos:e.data}))(({logos:e,compact:t=!1})=>{const a=Object(n.useRef)(null);Object(n.useEffect)(()=>{a.current&&e.length&&document.getElementById("card_container").querySelectorAll(".card")},[e]);const i=e.length;return r.a.createElement(m,{ref:a,id:"card_container",className:`c${i} ${t&&"compact"}`},e.map(({id:e,title:a,path:n,type:i,name:l,reveal:c,hit:m})=>r.a.createElement(o,{mini:t,id:e,key:`${e}-${l}`,title:a||"",logoFilePath:n||"",type:i,name:l,revealed:c,hited:m})))})},230:function(e,t,a){"use strict";a.r(t);var n=a(0),r=a.n(n),i=a(10),l=a(6),c=a(83),o=a(25),m=a(2),s=a(42),d=a(4),u=a(226),f=a(127);const g=m.default.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -98,4 +98,4 @@
       cursor: pointer;
     }
   }
-`;t.default=Object(l.b)(({finishAlert:e,currTimeUsed:t,source:a,level:n})=>({isVisible:e,timeUsed:t,source:a,level:n}),e=>({setFinishAlert:Object(i.a)(c.c,e)}))(({isVisible:e,setFinishAlert:t,timeUsed:a,source:i,level:l})=>{const c=Object(n.useRef)(null);return Object(n.useEffect)(()=>{e&&Object(o.disableBodyScroll)(c.current)},[e]),e?r.a.createElement(f,{ref:c},r.a.createElement("section",{className:"alert"},r.a.createElement("h1",{className:"header"},"👍👍👍"),r.a.createElement("p",{className:"content"},r.a.createElement("span",null,r.a.createElement("em",null,Object(d.c)(i).toUpperCase()),"at",r.a.createElement("em",null,l.toUpperCase()),"level:",r.a.createElement("em",null,Object(d.d)(a))),r.a.createElement("div",{className:"box"},r.a.createElement("div",{className:"mask"}),r.a.createElement(u.default,{compact:window.screen.availWidth<640})),r.a.createElement(p.a,{toggle:!1})),r.a.createElement("div",{className:"close",onClick:()=>{Object(o.enableBodyScroll)(c.current),t(!1)}},"x"))):null})}}]);
+`;t.default=Object(l.b)(({finishAlert:e,currTimeUsed:t,source:a,level:n,lang:r})=>({isVisible:e,timeUsed:t,source:a,level:n,lang:r}),e=>({setFinishAlert:Object(i.a)(o.c,e)}))(({isVisible:e,setFinishAlert:t,timeUsed:a,source:i,level:l,lang:o})=>{const m=Object(n.useRef)(null);return Object(n.useEffect)(()=>{e&&Object(c.disableBodyScroll)(m.current)},[e]),e?r.a.createElement(g,{ref:m},r.a.createElement("section",{className:"alert"},r.a.createElement("h1",{className:"header"},"👍👍👍"),r.a.createElement("p",{className:"content"},r.a.createElement("span",null,r.a.createElement("em",null,o.srcs[i]),"+",r.a.createElement("em",null,o.levels[l]),":",r.a.createElement("em",null,Object(d.c)(a))),r.a.createElement("div",{className:"box"},r.a.createElement("div",{className:"mask"}),r.a.createElement(u.default,{compact:window.screen.availWidth<640})),r.a.createElement(f.a,{toggle:!1})),r.a.createElement("div",{className:"close",onClick:()=>{Object(c.enableBodyScroll)(m.current),t(!1)}},"x"))):null})}}]);
