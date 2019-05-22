@@ -15,7 +15,7 @@ const Wrapper = styled.div`
     font-size: 0.6rem;
     padding: 0.2rem 0.6rem;
     padding-right: 1rem;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     color: #bd6565;
     border: none;
     font-weight: 600;

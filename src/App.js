@@ -7,6 +7,7 @@ import Alert from './components/Alert';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import AddHomePopup from './components/AddHomePopup';
+import LangDropdown from './components/LangDropdown';
 import Loading from './components/Loading';
 import PlayTimer from './components/PlayTimer';
 import Share from './components/Share';
@@ -30,7 +31,7 @@ const App = () => {
       <Alert />
       <PlayTimer />
       <Header />
-
+      <LangDropdown />
       <Suspense fallback={<Loading />}>
         <Options />
         <FinishAlert />

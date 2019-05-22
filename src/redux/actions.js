@@ -24,6 +24,12 @@ export const setTimeUsed = (time = 0) => {
     data: { currTimeUsed: time }
   };
 };
+export const setLang = (locale = 'en') => {
+  return {
+    type: 'SET_LANG',
+    data: { locale }
+  };
+};
 export const setLevel = (level = 1) => {
   return {
     type: 'SET_LEVEL',

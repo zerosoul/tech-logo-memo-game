@@ -5,7 +5,7 @@ import { Levels } from '../const';
 import { setLevel } from '../redux/actions';
 import StyledDropdown from './styled/Dropdown';
 
-const LevelDropdown = ({ level, playing, setLevel }) => {
+const LevelDropdown = ({ level, playing, setLevel, lang }) => {
   const handleLevelChange = evt => {
     const level = evt.target.value;
     console.log('setLevel', evt.target.value);
@@ -16,7 +16,7 @@ const LevelDropdown = ({ level, playing, setLevel }) => {
       <select disabled={playing} onChange={handleLevelChange}>
         {Object.keys(Levels).map(l => (
           <option key={l} value={l} selected={l == level}>
-            {l.toUpperCase()}
+            {lang.levels[l]}
           </option>
         ))}
       </select>
@@ -24,8 +24,8 @@ const LevelDropdown = ({ level, playing, setLevel }) => {
   );
 };
 
-const mapStateToProps = ({ level, playing }) => {
-  return { level, playing };
+const mapStateToProps = ({ level, playing, lang }) => {
+  return { level, playing, lang };
 };
 const mapDispatchToProps = dispatch => ({
   setLevel: bindActionCreators(setLevel, dispatch)

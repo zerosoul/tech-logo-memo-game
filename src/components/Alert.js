@@ -64,7 +64,7 @@ const Wrapper = styled.div`
     }
   }
 `;
-const Alert = ({ isVisible, setAlert }) => {
+const Alert = ({ isVisible, setAlert, lang }) => {
   const modal = useRef(null);
   const handleClose = () => {
     enableBodyScroll(modal.current);
@@ -82,7 +82,8 @@ const Alert = ({ isVisible, setAlert }) => {
       <section className="alert">
         <h1 className="header">☝️☝️☝️</h1>
         <p className="content">
-          click <span className="start">START</span> button first!
+          {lang.alert.before} <span className="start">{lang.start}</span>
+          {lang.alert.after}
         </p>
         <div className="close" onClick={handleClose}>
           x
@@ -92,8 +93,8 @@ const Alert = ({ isVisible, setAlert }) => {
   ) : null;
 };
 
-const mapStateToProps = ({ alert }) => {
-  return { isVisible: alert };
+const mapStateToProps = ({ alert, lang }) => {
+  return { isVisible: alert, lang };
 };
 const mapDispatchToProps = dispatch => ({
   setAlert: bindActionCreators(setAlert, dispatch)

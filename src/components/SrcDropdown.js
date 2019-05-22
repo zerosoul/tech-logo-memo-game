@@ -5,7 +5,9 @@ import { bindActionCreators } from 'redux';
 import { setSource } from '../redux/actions';
 import StyledDropdown from './styled/Dropdown';
 
-const SrcDropdown = ({ sources, source, playing, setSource }) => {
+const SrcDropdown = ({ sources, source, playing, setSource, lang }) => {
+  console.log('drop srcs', sources);
+
   const handleLevelChange = evt => {
     const src = evt.target.value;
     console.log('setSource', evt.target.value);
@@ -16,7 +18,7 @@ const SrcDropdown = ({ sources, source, playing, setSource }) => {
       <select disabled={playing} onChange={handleLevelChange}>
         {sources.map(src => (
           <option key={src.key} value={src.key} selected={src.key == source}>
-            {src.title.toUpperCase()}
+            {lang.srcs[src.key]}
           </option>
         ))}
       </select>
@@ -24,8 +26,8 @@ const SrcDropdown = ({ sources, source, playing, setSource }) => {
   );
 };
 
-const mapStateToProps = ({ sources, source, playing }) => {
-  return { source, sources, playing };
+const mapStateToProps = ({ sources, source, playing, lang }) => {
+  return { source, sources, playing, lang };
 };
 const mapDispatchToProps = dispatch => ({
   setSource: bindActionCreators(setSource, dispatch)

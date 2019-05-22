@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import ProductHunt from './ProductHunt';
+import { connect } from 'react-redux';
 
 const Wrapper = styled.footer`
   display: flex;
@@ -17,13 +18,13 @@ const Wrapper = styled.footer`
     font-size: 0.6rem;
   }
 `;
-const Footer = () => {
+const Footer = ({ lang }) => {
   return (
     <Wrapper>
       <ProductHunt />
-      <h1>LMG © Tristan</h1>
+      <h1>{lang.header} © Tristan</h1>
       <h2>
-        Inspired By{' '}
+        {lang.inspired}
         <a target="_blank" rel="noopener noreferrer" href="https://codepen.io/davinci/pen/yVZapY">
           Brainymo
         </a>
@@ -31,5 +32,7 @@ const Footer = () => {
     </Wrapper>
   );
 };
-
-export default Footer;
+const mapStateToProps = ({ lang }) => {
+  return { lang };
+};
+export default connect(mapStateToProps)(Footer);

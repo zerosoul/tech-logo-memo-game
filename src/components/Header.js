@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
 import GithubStar from './GithubStar';
 
 const Wrapper = styled.header`
@@ -22,16 +23,19 @@ const Wrapper = styled.header`
     }
   }
 `;
-const Header = () => {
+const Header = ({ lang }) => {
   return (
     <Wrapper>
-      <h1>🤔 LMG 🤔</h1>
+      <h1>🤔 {lang.header} 🤔</h1>
       <h2>
-        <span>Technology Logo Memory Game</span>
+        <span>{lang.intro}</span>
         <GithubStar />
       </h2>
     </Wrapper>
   );
 };
 
-export default Header;
+const mapStateToProps = ({ lang }) => {
+  return { lang };
+};
+export default connect(mapStateToProps)(Header);

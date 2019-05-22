@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 import { setPlayType } from '../redux/actions';
 import StyledDropdown from './styled/Dropdown';
 
-const LogoOrTitleDropdown = ({ playTypes, playType, playing, setPlayType }) => {
+const LogoOrTitleDropdown = ({ playTypes, playType, playing, setPlayType, lang }) => {
   const handleLevelChange = evt => {
     const type = evt.target.value;
     setPlayType(type);
@@ -15,7 +15,7 @@ const LogoOrTitleDropdown = ({ playTypes, playType, playing, setPlayType }) => {
       <select disabled={playing} onChange={handleLevelChange}>
         {playTypes.map(type => (
           <option key={type.key} value={type.key} selected={type.key == playType}>
-            {type.title.toUpperCase()}
+            {lang.playtypes[type.key]}
           </option>
         ))}
       </select>
@@ -23,8 +23,8 @@ const LogoOrTitleDropdown = ({ playTypes, playType, playing, setPlayType }) => {
   );
 };
 
-const mapStateToProps = ({ playTypes, playType, playing }) => {
-  return { playType, playTypes, playing };
+const mapStateToProps = ({ playTypes, playType, playing, lang }) => {
+  return { playType, playTypes, playing, lang };
 };
 const mapDispatchToProps = dispatch => ({
   setPlayType: bindActionCreators(setPlayType, dispatch)

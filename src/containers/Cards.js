@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import { FadeInUp } from '../components/Animates';
@@ -30,16 +30,28 @@ const Wrapper = styled.section`
 `;
 const Cards = ({ logos, compact = false }) => {
   console.log('logos', logos);
+  const cards = useRef(null);
+  useEffect(() => {
+    if (cards.current && logos.length) {
+      const cardContainerEle = document.getElementById('card_container');
+      const cardEles = [...cardContainerEle.querySelectorAll('.card')];
+      // const cardContainerEle = cards.current;
+      console.log('demo card', cardEles, logos.length);
 
+      // const firstName = cardEles[0].data('name');
+      // const demoCards = cardEles.filter(c => c.data('name') === firstName);
+      // console.log('demo card', demoCards);
+    }
+  }, [logos]);
   // const { logos: Logos } = state;
   const count = logos.length;
   return (
-    <Wrapper id="card_container" className={`c${count} ${compact && 'compact'}`}>
+    <Wrapper ref={cards} id="card_container" className={`c${count} ${compact && 'compact'}`}>
       {logos.map(({ id, title, path, type, name, reveal, hit }) => (
         <Card
           mini={compact}
           id={id}
-          key={id}
+          key={`${id}-${name}`}
           title={title || ''}
           logoFilePath={path || ''}
           type={type}

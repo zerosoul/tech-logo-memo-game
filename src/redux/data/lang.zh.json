@@ -1,0 +1,25 @@
+{
+  "header": "连连看",
+  "intro": "技术图标连连看",
+  "start": "来一发",
+  "restart": "重置",
+  "inspired": "灵感来源于 ",
+  "levels": {
+    "easy": "简单模式",
+    "medium": "还好模式",
+    "hard": "抓狂模式"
+  },
+  "playtypes": {
+    "title_vs_logo": "标题vs图标",
+    "logo_vs_logo": "图标vs图标"
+  },
+  "srcs": {
+    "fe": "前端类",
+    "be": "后端类"
+  },
+  "alert": {
+    "before": "请点击 ",
+    "after": " 按钮开始！"
+  },
+  "best_time": "最佳时长"
+}

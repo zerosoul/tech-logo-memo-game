@@ -1,17 +1,19 @@
 /* eslint-disable no-case-declarations */
-import { Sources, PlayTypes } from '../const';
+import { Sources, PlayTypes, Langs } from '../const';
 
 import { getRandomLogos, getDataByPlayType } from '../utils';
 
 const sources = Object.values(Sources).map(v => {
-  return { key: v.type, title: v.title };
+  return { key: v.type };
 });
 
 const playTypes = Object.values(PlayTypes).map(v => {
-  return { key: v.type, title: v.title };
+  return { key: v.type };
 });
-
+const lang =localStorage.getItem('LOCALE')|| navigator.language.slice(0, 2);
 let initStore = {
+  locale: lang,
+  lang: Langs[lang].data,
   sources,
   playTypes,
   playType: localStorage.getItem('PLAY_TYPE') || 'title_vs_logo',
@@ -91,6 +93,12 @@ const logos = (state = initStore, action = { type: '', data: {} }) => {
       const { finishAlert } = action.data;
       console.log('finishAlert', action);
       return { ...state, finishAlert };
+    case 'SET_LANG':
+      const { locale } = action.data;
+      console.log('set lang', locale);
+      localStorage.setItem('LOCALE', locale);
+
+      return { ...state, locale, lang: Langs[locale].data };
     case 'SET_LEVEL':
       const { level } = action.data;
       localStorage.setItem('LEVEL', level);

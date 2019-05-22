@@ -64,7 +64,7 @@ const getStoreTime = () => {
   }
 };
 let interID = null;
-const PlayTimer = ({ playing, win, level, setTimeUsed, currTimeUsed }) => {
+const PlayTimer = ({ playing, win, level, setTimeUsed, currTimeUsed, lang }) => {
   const storedTime = getStoreTime();
   const [paused, setPaused] = useState(false);
   const [time, setTime] = useState(0);
@@ -109,14 +109,14 @@ const PlayTimer = ({ playing, win, level, setTimeUsed, currTimeUsed }) => {
           <table className="time best">
             <thead>
               <tr>
-                <th>BEST TIME</th>
+                <th>{lang.best_time}</th>
               </tr>
             </thead>
             <tbody>
               {Object.keys(bestTime).map(level => {
                 return (
                   <tr key={level}>
-                    <td>{level.toUpperCase()}</td>
+                    <td>{lang.levels[level]}</td>
                     <td>{getTimeFormated(bestTime[level])}</td>
                   </tr>
                 );
@@ -130,8 +130,8 @@ const PlayTimer = ({ playing, win, level, setTimeUsed, currTimeUsed }) => {
 };
 
 const mapStateToProps = store => {
-  const { playing, win, currTimeUsed, level } = store;
-  return { playing, win, currTimeUsed, level };
+  const { playing, win, currTimeUsed, level, lang } = store;
+  return { playing, win, currTimeUsed, level, lang };
 };
 const mapDispatchToProps = dispatch => ({
   setTimeUsed: bindActionCreators(setTimeUsed, dispatch)

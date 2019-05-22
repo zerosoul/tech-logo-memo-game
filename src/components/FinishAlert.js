@@ -9,7 +9,6 @@ import { SlideInDown } from './Animates';
 import { getTimeFormated } from '../utils';
 import Cards from '../containers/Cards';
 import Share from './Share';
-import { getSourceTitle } from '../utils';
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -88,7 +87,7 @@ const Wrapper = styled.div`
     }
   }
 `;
-const FinishAlert = ({ isVisible, setFinishAlert, timeUsed, source, level }) => {
+const FinishAlert = ({ isVisible, setFinishAlert, timeUsed, source, level, lang }) => {
   const modal = useRef(null);
   const handleClose = () => {
     enableBodyScroll(modal.current);
@@ -105,8 +104,7 @@ const FinishAlert = ({ isVisible, setFinishAlert, timeUsed, source, level }) => 
         <h1 className="header">👍👍👍</h1>
         <p className="content">
           <span>
-            <em>{getSourceTitle(source).toUpperCase()}</em>at<em>{level.toUpperCase()}</em>
-            level:
+            <em>{lang.srcs[source]}</em>+<em>{lang.levels[level]}</em>:
             <em>{getTimeFormated(timeUsed)}</em>
           </span>
           <div className="box">
@@ -123,8 +121,8 @@ const FinishAlert = ({ isVisible, setFinishAlert, timeUsed, source, level }) => 
   ) : null;
 };
 
-const mapStateToProps = ({ finishAlert, currTimeUsed, source, level }) => {
-  return { isVisible: finishAlert, timeUsed: currTimeUsed, source, level };
+const mapStateToProps = ({ finishAlert, currTimeUsed, source, level, lang }) => {
+  return { isVisible: finishAlert, timeUsed: currTimeUsed, source, level, lang };
 };
 const mapDispatchToProps = dispatch => ({
   setFinishAlert: bindActionCreators(setFinishAlert, dispatch)

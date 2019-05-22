@@ -1,0 +1,25 @@
+{
+  "header": "LMG",
+  "intro": "Technology Logo Memory Game",
+  "start": "START",
+  "restart": "RESTART",
+  "inspired": "Inspired By ",
+  "levels": {
+    "easy": "EASY",
+    "medium": "MEDIUM",
+    "hard": "HARD"
+  },
+  "playtypes": {
+    "title_vs_logo": "TITLE vs LOGO",
+    "logo_vs_logo": "LOGO vs LOGO"
+  },
+  "srcs": {
+    "fe": "FRONTEND",
+    "be": "BACKEND"
+  },
+  "alert": {
+    "before": "click ",
+    "after": " button first!"
+  },
+  "best_time": "BEST TIME"
+}

@@ -26,7 +26,7 @@ const Button = styled.button`
   }
 `;
 
-const PlayButton = ({ playing, setStart }) => {
+const PlayButton = ({ playing, setStart, lang }) => {
   const handleStarted = () => {
     console.log('handle playing', playing);
 
@@ -35,12 +35,12 @@ const PlayButton = ({ playing, setStart }) => {
       smoothScrollIntoView(document.getElementById('card_container'), { behavior: 'smooth' });
     }
   };
-  return <Button onClick={handleStarted}>{playing ? `reset` : `start`}</Button>;
+  return <Button onClick={handleStarted}>{playing ? lang.restart : lang.start}</Button>;
 };
 
 const mapStateToProps = store => {
-  const { playing } = store;
-  return { playing };
+  const { playing, lang } = store;
+  return { playing, lang };
 };
 const mapDispatchToProps = dispatch => ({
   setStart: bindActionCreators(setStart, dispatch)
