@@ -11,7 +11,7 @@ const Wrapper = styled.aside`
   left: 1rem;
   top: 1rem;
   select {
-    background: #616d87;
+    background: #615d87;
     color: #ddd;
   }
   .triangle {

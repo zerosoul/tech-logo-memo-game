@@ -8,7 +8,7 @@ import PlayButton from '../components/PlayButton';
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
   max-width: 26rem;
 
   margin: 2rem auto;

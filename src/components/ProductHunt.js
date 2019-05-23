@@ -6,7 +6,7 @@ export default function ProductHunt() {
     <a
       href="https://www.producthunt.com/posts/frontend-logo-memory-game?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-frontend-logo-memory-game"
       target="_blank"
-      style={{ marginBottom: '1rem' }}
+      style={{ marginBottom: '.6rem' }}
     >
       <img
         src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=155856&theme=light"

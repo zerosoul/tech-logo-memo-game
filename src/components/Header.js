@@ -1,14 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import GithubStar from './GithubStar';
 
 const Wrapper = styled.header`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 1.4rem 0;
+  padding: 1rem 0 0.8rem;
   h1 {
     font-size: 1.4rem;
     font-weight: 800;
@@ -16,10 +15,11 @@ const Wrapper = styled.header`
   }
   h2 {
     display: flex;
+    flex-direction: column;
     align-items: center;
     font-size: 0.8rem;
-    span {
-      margin-right: 0.4rem;
+    .desc {
+      margin-bottom: 0.8rem;
     }
   }
 `;
@@ -28,8 +28,7 @@ const Header = ({ lang }) => {
     <Wrapper>
       <h1>🤔 {lang.header} 🤔</h1>
       <h2>
-        <span>{lang.intro}</span>
-        <GithubStar />
+        <span className="desc">{lang.intro}</span>
       </h2>
     </Wrapper>
   );

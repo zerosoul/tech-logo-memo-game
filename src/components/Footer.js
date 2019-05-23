@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import GithubIcons from './GithubIcons';
+
 import ProductHunt from './ProductHunt';
 import { connect } from 'react-redux';
 
@@ -9,6 +11,12 @@ const Wrapper = styled.footer`
   justify-content: center;
   align-items: center;
   margin: 1.2rem 0;
+  .icons {
+    margin-bottom: 0.4rem;
+    & > span:first-child {
+      margin-right: 0.4rem;
+    }
+  }
   h1 {
     font-size: 1rem;
     font-weight: 800;
@@ -22,6 +30,9 @@ const Footer = ({ lang }) => {
   return (
     <Wrapper>
       <ProductHunt />
+      <p className="icons">
+        <GithubIcons />
+      </p>
       <h1>{lang.header} © Tristan</h1>
       <h2>
         {lang.inspired}
