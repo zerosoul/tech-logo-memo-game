@@ -20,7 +20,7 @@
 `;var b=Object(s.b)(e=>{const{playing:a,lang:t}=e;return{playing:a,lang:t}},e=>({setStart:Object(c.a)(p.i,e)}))(({playing:e,setStart:a,lang:t})=>{return n.a.createElement(d,{onClick:()=>{a(),e||Object(g.a)(document.getElementById("card_container"),{behavior:"smooth"})}},e?t.restart:t.start)});const v=r.default.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
   max-width: 26rem;
 
   margin: 2rem auto;
