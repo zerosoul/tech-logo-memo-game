@@ -67,3 +67,8 @@ export const setStart = () => {
     type: 'SET_START'
   };
 };
+export const setReset = () => {
+  return {
+    type: 'SET_RESET'
+  };
+};

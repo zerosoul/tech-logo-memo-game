@@ -18,6 +18,7 @@ const GlobalStyle = createGlobalStyle`
   }
   body{
     -webkit-overflow-scrolling: touch;
+    overflow:scroll;
     margin:0 auto;
     min-height:100vh;
     position: relative;

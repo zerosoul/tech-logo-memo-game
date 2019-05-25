@@ -10,16 +10,19 @@ const sources = Object.values(Sources).map(v => {
 const playTypes = Object.values(PlayTypes).map(v => {
   return { key: v.type };
 });
-const lang =localStorage.getItem('LOCALE')|| navigator.language.slice(0, 2);
+const lang = localStorage.getItem('LOCALE') || navigator.language.slice(0, 2);
+const level = localStorage.getItem('LEVEL') || 'easy';
+const source = localStorage.getItem('SRC') || 'fe';
+const playType = localStorage.getItem('PLAY_TYPE') || 'title_vs_logo';
 let initStore = {
   locale: lang,
   lang: Langs[lang].data,
   sources,
   playTypes,
-  playType: localStorage.getItem('PLAY_TYPE') || 'title_vs_logo',
-  source: localStorage.getItem('SRC') || 'fe',
-  data: getRandomLogos(),
-  level: localStorage.getItem('LEVEL') || 'easy',
+  playType,
+  source,
+  data: getRandomLogos(Sources[source], level),
+  level,
   reveals: [],
   hits: [],
   currTimeUsed: 0,
@@ -118,12 +121,24 @@ const logos = (state = initStore, action = { type: '', data: {} }) => {
         win: false,
         hits: [],
         reveals: [],
-        data: getDataByPlayType(getRandomLogos(Sources[source], prevLevel), currPlayType),
+        // data: getDataByPlayType(getRandomLogos(Sources[source], prevLevel), currPlayType),
         // level: prevLevel,
         playing: !playing
       };
       console.log('set start', startNew);
       return startNew;
+    case 'SET_RESET':
+      const resetData = {
+        ...state,
+        win: false,
+        hits: [],
+        reveals: [],
+        data: getDataByPlayType(getRandomLogos(Sources[source], prevLevel), currPlayType),
+        // level: prevLevel,
+        playing: !playing
+      };
+      console.log('set start', resetData);
+      return resetData;
     default:
       return { ...state };
   }
