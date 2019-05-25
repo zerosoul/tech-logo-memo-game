@@ -3,7 +3,6 @@ import reset from 'styled-reset';
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
-
   *{
     box-sizing:border-box;
     user-select:none;
@@ -22,8 +21,9 @@ const GlobalStyle = createGlobalStyle`
     margin:0 auto;
     min-height:100vh;
     position: relative;
-    background:linear-gradient(135deg, rgb(96, 108, 136) 0%, rgb(63, 76, 107) 100%);
-
+  }
+  #root{
+    background-image:linear-gradient(135deg, rgb(96, 108, 136) 0%, rgb(63, 76, 107) 100%);
   }
 
   @media screen and (min-width: 320px){

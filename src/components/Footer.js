@@ -10,7 +10,7 @@ const Wrapper = styled.footer`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 1.2rem 0;
+  padding: 1.2rem 0;
   .icons {
     margin-bottom: 0.4rem;
     & > span:first-child {
