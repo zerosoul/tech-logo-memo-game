@@ -7,7 +7,7 @@ import { setLang } from '../redux/actions';
 import StyledDropdown from './styled/Dropdown';
 
 const Wrapper = styled.aside`
-  position: fixed;
+  position: absolute;
   left: 1rem;
   top: 1rem;
   select {

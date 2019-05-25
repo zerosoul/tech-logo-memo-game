@@ -12,7 +12,7 @@ import Loading from './components/Loading';
 import PlayTimer from './components/PlayTimer';
 import Share from './components/Share';
 const FinishAlert = React.lazy(() => import('./components/FinishAlert'));
-const Ribbon = React.lazy(() => import('./components/Ribbon'));
+import Fullscreen from './components/Fullscreen';
 const Background = React.lazy(() => import('./components/ParticlesBackground'));
 const Options = React.lazy(() => import('./containers/Options'));
 const Cards = React.lazy(() => {
@@ -32,10 +32,10 @@ const App = () => {
       <PlayTimer />
       <Header />
       <LangDropdown />
+      <Fullscreen />
       <Suspense fallback={<Loading />}>
         <Options />
         <FinishAlert />
-        <Ribbon />
         <Background />
         <Cards />
       </Suspense>

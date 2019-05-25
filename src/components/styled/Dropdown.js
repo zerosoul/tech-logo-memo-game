@@ -7,7 +7,8 @@ const Wrapper = styled.div`
   .triangle {
     position: absolute;
     right: 0.4rem;
-    top: 0.2rem;
+    top: 50%;
+    margin-top: -0.4rem;
     font-size: 0.8rem;
     color: #bd6565;
   }
