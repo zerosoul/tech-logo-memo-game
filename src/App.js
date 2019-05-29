@@ -23,7 +23,9 @@ const Cards = React.lazy(() => {
     }, 1000);
   });
 });
-
+const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+  navigator.userAgent
+);
 const App = () => {
   return (
     <Provider store={store}>
@@ -32,7 +34,7 @@ const App = () => {
       <PlayTimer />
       <Header />
       <LangDropdown />
-      <Fullscreen />
+      {!isMobile && <Fullscreen />}
       <Suspense fallback={<Loading />}>
         <Options />
         <FinishAlert />
