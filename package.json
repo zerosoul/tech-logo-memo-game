@@ -29,7 +29,7 @@
   "bugs": {
     "url": "https://github.com/zerosoul/frontend-memo-game/issues"
   },
-  "homepage": "https://zerosoul.github.io/frontend-memo-game",
+  "homepage": "https://game.yangerxiao.com/tech-logo-memo-game",
   "dependencies": {
     "body-scroll-lock": "^2.6.1",
     "html2canvas": "^1.0.0-rc.1",
