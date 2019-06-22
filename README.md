@@ -2,7 +2,7 @@
 
 [中文介绍](README.zh.md)
 
-[Technology Logo Memory Game.](https://zerosoul.github.io/frontend-memo-game/)
+[Technology Logo Memory Game.](https://game.yangerxiao.com/tech-logo-memo-game/)
 
 ## Mobile UX
 

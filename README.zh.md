@@ -2,7 +2,7 @@
 
 [English Version](README.md)
 
-[记忆+连连看](https://zerosoul.github.io/frontend-memo-game/)
+[记忆+连连看](https://game.yangerxiao.com/tech-logo-memo-game/)
 
 ## 移动端
 
