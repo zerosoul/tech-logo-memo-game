@@ -18,9 +18,9 @@ const Wrapper = styled.div`
       font-size: 0.6rem;
     }
   }
-  border: 1px solid #0001;
+  border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 0.2rem;
-  background: ${({ revealed }) => (revealed ? 'none' : '#fff1')};
+  background: ${({ revealed }) => (revealed ? 'none' : 'rgba(255, 255, 255, 0.2);')};
   margin: 0.4rem;
   position: relative;
   &.inReveal {
@@ -69,7 +69,7 @@ const Wrapper = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #0008;
+    background-color: rgba(0, 0, 0, 0.2);
     font-size: 0.8rem;
     font-weight: 600;
     text-align: center;

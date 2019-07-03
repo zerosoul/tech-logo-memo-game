@@ -14,7 +14,7 @@ const Wrapper = styled.section`
     min-height: unset;
   }
   align-content: center;
-  background-color: #0001;
+  background-color: rgba(0, 0, 0, 0.1);
   max-width: 50rem;
   padding: 0.8rem 0;
   margin: 0 0.2rem;
