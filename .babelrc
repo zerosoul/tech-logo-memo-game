@@ -7,7 +7,7 @@
         "useBuiltIns": "usage",
         "corejs": 3,
         "targets": {
-          "chrome": 60
+          "chrome": 70
         }
       }
     ],
