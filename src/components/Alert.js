@@ -18,7 +18,7 @@ const Wrapper = styled.div`
   right: 0;
   bottom: 0;
   z-index: 999;
-  background-color: #0006;
+  background-color: rgba(0, 0, 0, 0.4);
   .alert {
     /* max-width: 12rem; */
     background: rgb(96, 108, 136);
