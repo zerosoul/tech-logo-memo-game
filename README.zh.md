@@ -4,6 +4,8 @@
 
 [记忆+连连看](https://game.yangerxiao.com/tech-logo-memo-game/)
 
+![二维码图片](public/qr.png)
+
 ## 移动端
 
 ![移动端展现截图](public/demo.mobile.gif)

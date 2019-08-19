@@ -4,6 +4,8 @@
 
 [Technology Logo Memory Game.](https://game.yangerxiao.com/tech-logo-memo-game/)
 
+![qr image](public/qr.png)
+
 ## Mobile UX
 
 ![mobile demo](public/demo.mobile.gif)
