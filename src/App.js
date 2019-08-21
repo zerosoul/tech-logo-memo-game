@@ -10,6 +10,7 @@ import AddHomePopup from './components/AddHomePopup';
 import LangDropdown from './components/LangDropdown';
 import Loading from './components/Loading';
 import PlayTimer from './components/PlayTimer';
+import Comment from './components/Comment';
 import Share from './components/Share';
 const FinishAlert = React.lazy(() => import('./components/FinishAlert'));
 import Fullscreen from './components/Fullscreen';
@@ -42,6 +43,7 @@ const App = () => {
         <Cards />
       </Suspense>
       <AddHomePopup />
+      <Comment />
       <Footer />
     </Provider>
   );
