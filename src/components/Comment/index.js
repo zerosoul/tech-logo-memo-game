@@ -1,19 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import 'gitalk/dist/gitalk.css';
 import GT from 'gitalk';
 import styled from 'styled-components';
-
+import GTContainer from './styled';
 const DevWrapper = styled.div`
   margin: 0 auto;
   text-align: center;
   padding: 1rem;
   border: 1px solid #ddd;
 `;
-const GTContainer = styled.div``;
 
 const Comment = () => {
-  const [isProd] = useState(process.env.NODE_ENV == 'production');
-  // const [isProd] = useState(true);
+  // const [isProd] = useState(process.env.NODE_ENV == 'production');
+  const [isProd] = useState(true);
   useEffect(() => {
     if (isProd) {
       const language = navigator.language === 'zh-CN' ? navigator.language : 'en';
@@ -30,7 +28,6 @@ const Comment = () => {
       gitalk.render('gitalk-container');
     }
   }, [isProd]);
-  // return <GTContainer id="gitalk-container" />;
   return isProd ? (
     <GTContainer id="gitalk-container" />
   ) : (
