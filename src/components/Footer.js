@@ -11,6 +11,7 @@ const Wrapper = styled.footer`
   justify-content: center;
   align-items: center;
   padding: 1.2rem 0;
+  color: #ffffeb;
   .icons {
     margin-bottom: 0.4rem;
     & > span:first-child {

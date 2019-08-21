@@ -8,6 +8,7 @@ const Wrapper = styled.header`
   justify-content: center;
   align-items: center;
   padding: 1rem 0 0.8rem;
+  color: #ffffeb;
   h1 {
     font-size: 1.4rem;
     font-weight: 800;

@@ -3,15 +3,16 @@ import GT from 'gitalk';
 import styled from 'styled-components';
 import GTContainer from './styled';
 const DevWrapper = styled.div`
-  margin: 0 auto;
+  margin: 2rem auto;
   text-align: center;
   padding: 1rem;
+  max-width: 20rem;
   border: 1px solid #ddd;
 `;
 
 const Comment = () => {
-  // const [isProd] = useState(process.env.NODE_ENV == 'production');
-  const [isProd] = useState(true);
+  const [isProd] = useState(process.env.NODE_ENV == 'production');
+  // const [isProd] = useState(true);
   useEffect(() => {
     if (isProd) {
       const language = navigator.language === 'zh-CN' ? navigator.language : 'en';
