@@ -24,6 +24,7 @@
 - [x] Remember the best time by different level
 - [x] Suport **LOGO vs LOGO** and **TITLE vs LOGO**, two play types
 - [x] Full screening play
+- [x] Comment
 - [ ] Web APP: PWA
 - [ ] Put play data into remote server
 - [x] i18s
