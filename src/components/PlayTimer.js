@@ -9,6 +9,7 @@ import { setTimeUsed } from '../redux/actions';
 import { getTimeFormated } from '../utils';
 
 const Wrapper = styled.aside`
+  z-index: 999;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -17,12 +18,13 @@ const Wrapper = styled.aside`
   bottom: 1rem;
   right: 0;
   font-size: 0.6rem;
-  background: rgb(255, 237, 102, 0.8);
+  background: rgb(255, 237, 102, 0.9);
   padding: 0.6rem;
   transition: all 1s;
   font-weight: 800;
   &.playing {
     opacity: 0.3;
+    right: -5.8rem;
   }
   > p:not(:last-child) {
     margin-bottom: 0.4rem;
