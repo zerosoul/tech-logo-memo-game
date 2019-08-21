@@ -69,6 +69,7 @@ const Wrapper = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    color: #ffffeb;
     background-color: rgba(0, 0, 0, 0.2);
     font-size: 0.8rem;
     font-weight: 600;

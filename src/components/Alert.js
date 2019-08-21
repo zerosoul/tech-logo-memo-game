@@ -46,6 +46,7 @@ const Wrapper = styled.div`
       }
     }
     .close {
+      color: #ffffeb;
       position: absolute;
       top: -0.6rem;
       right: -0.6rem;
