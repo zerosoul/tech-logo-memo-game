@@ -72,7 +72,7 @@ const Wrapper = styled.div`
     cursor: pointer;
   }
 `;
-const shareUrl = `https://game.yangerxiao.com/tech-logo-memo-game/`;
+const shareUrl = `https://works.yangerxiao.com/tech-logo-memo-game/`;
 let intTime = null;
 const Share = ({ currTimeUsed, toggle = true }) => {
   const [hidden, setHidden] = useState(false);
@@ -105,7 +105,7 @@ const Share = ({ currTimeUsed, toggle = true }) => {
           currTimeUsed,
           true
         )}，完成了挑战！前端图标千千万，快来试试连连看！`}
-        image={`https://game.yangerxiao.com/tech-logo-memo-game/static/logos/yarn.png`}
+        image={`https://works.yangerxiao.com/tech-logo-memo-game/static/logos/yarn.png`}
       >
         <img width="20" src={WeiboIcon} alt="Weibo share button" />
       </WeiboShareButton>
@@ -125,7 +125,7 @@ const Share = ({ currTimeUsed, toggle = true }) => {
 
       <TwitterShareButton
         className="btn"
-        url={`https://game.yangerxiao.com/tech-logo-memo-game/`}
+        url={`https://works.yangerxiao.com/tech-logo-memo-game/`}
         title={`😂Find a funny game, complete the challenge with time used ${getTimeFormated(
           currTimeUsed
         )}!`}

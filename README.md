@@ -2,7 +2,7 @@
 
 [中文介绍](README.zh.md)
 
-[Technology Logo Memory Game.](https://game.yangerxiao.com/tech-logo-memo-game/)
+[Technology Logo Memory Game.](https://works.yangerxiao.com/tech-logo-memo-game/)
 
 ![qr image](public/qr.png)
 
