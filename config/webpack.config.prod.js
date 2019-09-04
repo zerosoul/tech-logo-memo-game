@@ -4,6 +4,8 @@ const ManifestPlugin = require('webpack-manifest-plugin');
 const merge = require('webpack-merge');
 const commonConfig = require('./webpack.config.common');
 const paths = require('./paths');
+const { GenerateSW } = require('workbox-webpack-plugin');
+
 const TerserPlugin = require('terser-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
@@ -53,6 +55,21 @@ module.exports = merge(commonConfig, {
     // having to parse `index.html`.
     new ManifestPlugin({
       fileName: 'asset-manifest.json'
+    }),
+    new GenerateSW({
+      clientsClaim: true,
+      exclude: [/\.map$/, /asset-manifest\.json$/],
+      importWorkboxFrom: 'local',
+      navigateFallback: './index.html',
+      navigateFallbackBlacklist: [
+        // Exclude URLs starting with /_, as they're likely an API call
+        new RegExp('^/_'),
+        // Exclude any URLs whose last part seems to be a file extension
+        // as they're likely a resource and not a SPA route.
+        // URLs containing a "?" character won't be blacklisted as they're likely
+        // a route with query params (e.g. auth callbacks).
+        new RegExp('/[^/?]+\\.[^/]+$')
+      ]
     }),
     new BundleAnalyzerPlugin({
       openAnalyzer: false,
