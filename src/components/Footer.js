@@ -34,7 +34,12 @@ const Footer = ({ lang }) => {
       <p className="icons">
         <GithubIcons />
       </p>
-      <h1>{lang.header} © Tristan</h1>
+      <h1>
+        {lang.header} ©{' '}
+        <a target="_blank" rel="noopener noreferrer" href="//yangerxiao.com">
+          Tristan
+        </a>
+      </h1>
       <h2>
         {lang.inspired}
         <a target="_blank" rel="noopener noreferrer" href="https://codepen.io/davinci/pen/yVZapY">
