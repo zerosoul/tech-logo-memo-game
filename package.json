@@ -1,6 +1,6 @@
 {
   "name": "frontend-memo-game",
-  "version": "2.8.0",
+  "version": "2.9.0",
   "description": "technology logo memory game",
   "main": "index.js",
   "scripts": {
