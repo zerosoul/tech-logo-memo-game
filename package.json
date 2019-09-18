@@ -1,6 +1,6 @@
 {
   "name": "frontend-memo-game",
-  "version": "2.9.0",
+  "version": "3.0.0",
   "description": "technology logo memory game",
   "main": "index.js",
   "scripts": {
@@ -17,6 +17,7 @@
   "keywords": [
     "game",
     "memory",
+    "logo",
     "react",
     "redux",
     "frontend",
