@@ -3,15 +3,16 @@ import { Provider } from 'react-redux';
 
 import store from './redux/store';
 
-import Alert from './components/Alert';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import AddHomePopup from './components/AddHomePopup';
 import LangDropdown from './components/LangDropdown';
 import Loading from './components/Loading';
-import PlayTimer from './components/PlayTimer';
-import Comment from './components/Comment';
-import Share from './components/Share';
+import PageLoading from './components/PageLoading';
+const Alert = React.lazy(() => import('./components/Alert'));
+const Share = React.lazy(() => import('./components/Share'));
+const Comment = React.lazy(() => import('./components/Comment'));
+const PlayTimer = React.lazy(() => import('./components/PlayTimer'));
+const AddHomePopup = React.lazy(() => import('./components/AddHomePopup'));
+const Header = React.lazy(() => import('./components/Header'));
+const Footer = React.lazy(() => import('./components/Footer'));
 const FinishAlert = React.lazy(() => import('./components/FinishAlert'));
 import Fullscreen from './components/Fullscreen';
 const Background = React.lazy(() => import('./components/ParticlesBackground'));
@@ -29,23 +30,25 @@ const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/
 );
 const App = () => {
   return (
-    <Provider store={store}>
-      <Share />
-      <Alert />
-      <PlayTimer />
-      <Header />
-      <LangDropdown />
-      {!isMobile && <Fullscreen />}
-      <Suspense fallback={<Loading />}>
-        <Options />
-        <FinishAlert />
-        <Background />
-        <Cards />
-      </Suspense>
-      <AddHomePopup />
-      <Comment />
-      <Footer />
-    </Provider>
+    <Suspense fallback={<PageLoading />}>
+      <Provider store={store}>
+        <Share />
+        <Alert />
+        <PlayTimer />
+        <Header />
+        <LangDropdown />
+        {!isMobile && <Fullscreen />}
+        <Suspense fallback={<Loading />}>
+          <Options />
+          <FinishAlert />
+          <Background />
+          <Cards />
+        </Suspense>
+        <AddHomePopup />
+        <Comment />
+        <Footer />
+      </Provider>
+    </Suspense>
   );
 };
 export default App;
