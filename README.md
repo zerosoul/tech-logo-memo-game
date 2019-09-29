@@ -22,10 +22,10 @@
 - [x] Select play level: easy, medium and hard
 - [x] Share the play result to weibo, twitter and facebook
 - [x] Remember the best time by different level
-- [x] Suport **LOGO vs LOGO** and **TITLE vs LOGO**, two play types
+- [x] Suport **LOGO vs LOGO** and **TITLE vs LOGO**, two play modes
 - [x] Full screening play
 - [x] Comment
-- [ ] Web APP: PWA
+- [x] Web APP: PWA
 - [ ] Put play data into remote server
 - [x] i18s
 - [ ] New user guiding
