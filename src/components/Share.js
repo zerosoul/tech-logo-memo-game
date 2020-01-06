@@ -4,15 +4,12 @@ import { connect } from 'react-redux';
 import { getTimeFormated } from '../utils';
 
 import ShareImage from '../assets/img/icon.png';
-import WeiboIcon from '../assets/img/weibo.png';
 import {
   FacebookShareButton,
   FacebookIcon,
-  //   FacebookShareCount,
   TwitterShareButton,
   TwitterIcon,
-  // RedditShareButton,
-  // EmailShareButton,
+  WeiboIcon,
   WeiboShareButton
 } from 'react-share';
 
@@ -34,25 +31,7 @@ const Wrapper = styled.div`
     transform: translateX(-78%);
   }
   .btn {
-    width: 3.6rem;
-    &.wb img {
-      background: #624c44;
-      border-radius: 50%;
-      padding: 5px;
-      box-sizing: content-box;
-      vertical-align: middle;
-    }
-    &:last-child {
-      margin-right: 0;
-    }
-    &:first-child {
-      margin-left: 0;
-      text-align: left;
-    }
-    /* &.withCount {
-      display: flex;
-      flex-direction: column;
-    } */
+    width: 2rem;
   }
   .sep {
     width: 2px;
@@ -99,17 +78,16 @@ const Share = ({ currTimeUsed, toggle = true }) => {
   return (
     <Wrapper className={`${hidden && 'hidden'} ${toggle && 'toggle'}`}>
       <WeiboShareButton
-        className="btn wb"
+        className="btn"
         url={shareUrl}
         title={`发现了一个好玩的游戏，用时${getTimeFormated(
           currTimeUsed,
           true
         )}，完成了挑战！前端图标千千万，快来试试连连看！`}
-        image={`https://works.yangerxiao.com/tech-logo-memo-game/static/logos/yarn.png`}
+        image={`https://works.yangerxiao.com/tech-logo-memo-game/static/logos/fe/yarn.png`}
       >
-        <img width="20" src={WeiboIcon} alt="Weibo share button" />
+        <WeiboIcon size={32} round />
       </WeiboShareButton>
-      {/* <p className="withCount btn"> */}
       <FacebookShareButton
         className="btn"
         url={shareUrl}
@@ -119,9 +97,6 @@ const Share = ({ currTimeUsed, toggle = true }) => {
       >
         <FacebookIcon size={32} round />
       </FacebookShareButton>
-
-      {/* <FacebookShareCount url={shareUrl}>{count => count}</FacebookShareCount> */}
-      {/* </p> */}
 
       <TwitterShareButton
         className="btn"
