@@ -25,6 +25,14 @@ const Wrapper = styled.footer`
   }
   h2 {
     font-size: 0.6rem;
+    margin-bottom: 0.6rem;
+  }
+  h3 {
+    a {
+      color: #fff;
+      text-decoration: none;
+    }
+    font-size: 0.5rem;
   }
 `;
 const Footer = ({ lang }) => {
@@ -46,6 +54,11 @@ const Footer = ({ lang }) => {
           Brainymo
         </a>
       </h2>
+      <h3>
+        <a rel="noopener noreferrer" target="_blank" href="http://www.beian.miit.gov.cn/">
+          京ICP备16015459号-1
+        </a>
+      </h3>
     </Wrapper>
   );
 };
