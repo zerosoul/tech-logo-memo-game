@@ -1,7 +1,7 @@
 const webpack = require('webpack');
 
 const paths = require('./paths');
-const merge = require('webpack-merge');
+const { merge } = require('webpack-merge');
 const commonConfig = require('./webpack.config.common');
 // 为方便配置，以根目录为本地服务器地址
 const publicPath = '/';
