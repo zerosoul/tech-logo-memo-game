@@ -1,4 +1,4 @@
-# LMG
+# LMG - AN Amazing Game!!
 
 [中文介绍](README.zh.md)
 
