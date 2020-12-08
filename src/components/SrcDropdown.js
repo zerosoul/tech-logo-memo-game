@@ -15,9 +15,9 @@ const SrcDropdown = ({ sources, source, playing, setSource, lang }) => {
   };
   return (
     <StyledDropdown>
-      <select disabled={playing} onChange={handleLevelChange}>
+      <select disabled={playing} onChange={handleLevelChange} value={source}>
         {sources.map(src => (
-          <option key={src.key} value={src.key} selected={src.key == source}>
+          <option key={src.key} value={src.key}>
             {lang.srcs[src.key]}
           </option>
         ))}
@@ -32,7 +32,4 @@ const mapStateToProps = ({ sources, source, playing, lang }) => {
 const mapDispatchToProps = dispatch => ({
   setSource: bindActionCreators(setSource, dispatch)
 });
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(SrcDropdown);
+export default connect(mapStateToProps, mapDispatchToProps)(SrcDropdown);

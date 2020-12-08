@@ -13,9 +13,9 @@ const LevelDropdown = ({ level, playing, setLevel, lang }) => {
   };
   return (
     <StyledDropdown>
-      <select disabled={playing} onChange={handleLevelChange}>
+      <select disabled={playing} onChange={handleLevelChange} value={level}>
         {Object.keys(Levels).map(l => (
-          <option key={l} value={l} selected={l == level}>
+          <option key={l} value={l}>
             {lang.levels[l]}
           </option>
         ))}
@@ -30,7 +30,4 @@ const mapStateToProps = ({ level, playing, lang }) => {
 const mapDispatchToProps = dispatch => ({
   setLevel: bindActionCreators(setLevel, dispatch)
 });
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(LevelDropdown);
+export default connect(mapStateToProps, mapDispatchToProps)(LevelDropdown);

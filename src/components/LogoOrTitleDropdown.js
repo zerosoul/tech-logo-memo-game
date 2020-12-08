@@ -12,9 +12,9 @@ const LogoOrTitleDropdown = ({ playTypes, playType, playing, setPlayType, lang }
   };
   return (
     <StyledDropdown>
-      <select disabled={playing} onChange={handleLevelChange}>
+      <select disabled={playing} onChange={handleLevelChange} value={playType}>
         {playTypes.map(type => (
-          <option key={type.key} value={type.key} selected={type.key == playType}>
+          <option key={type.key} value={type.key}>
             {lang.playtypes[type.key]}
           </option>
         ))}
@@ -29,7 +29,4 @@ const mapStateToProps = ({ playTypes, playType, playing, lang }) => {
 const mapDispatchToProps = dispatch => ({
   setPlayType: bindActionCreators(setPlayType, dispatch)
 });
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(LogoOrTitleDropdown);
+export default connect(mapStateToProps, mapDispatchToProps)(LogoOrTitleDropdown);

@@ -27,9 +27,9 @@ const LangDropdown = ({ playing, setLang, locale }) => {
   return !playing ? (
     <Wrapper>
       <StyledDropdown>
-        <select onChange={handleLevelChange}>
+        <select onChange={handleLevelChange} value={locale}>
           {Object.keys(Langs).map(l => (
-            <option key={l} value={l} selected={l == locale}>
+            <option key={l} value={l}>
               {Langs[l].title}
             </option>
           ))}
@@ -45,7 +45,4 @@ const mapStateToProps = ({ playing, locale }) => {
 const mapDispatchToProps = dispatch => ({
   setLang: bindActionCreators(setLang, dispatch)
 });
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(LangDropdown);
+export default connect(mapStateToProps, mapDispatchToProps)(LangDropdown);
