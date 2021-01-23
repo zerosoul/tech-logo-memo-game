@@ -21,7 +21,7 @@
     "backend",
     "technology"
   ],
-  "author": "tristan",
+  "author": "Tristan",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/zerosoul/frontend-memo-game/issues"
@@ -48,6 +48,7 @@
   "devDependencies": {
     "@babel/cli": "^7.12.10",
     "@babel/core": "^7.12.10",
+    "@babel/eslint-parser": "^7.12.1",
     "@babel/plugin-proposal-class-properties": "^7.12.1",
     "@babel/plugin-syntax-dynamic-import": "^7.8.3",
     "@babel/preset-env": "^7.12.11",
@@ -83,9 +84,7 @@
   },
   "browserslist": {
     "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
+      ">80%"
     ],
     "development": [
       "last 1 chrome version",
