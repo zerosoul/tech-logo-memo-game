@@ -60,7 +60,7 @@ module.exports = function (webpackEnv) {
   const shouldUseReactRefresh = env.raw.FAST_REFRESH;
 
   // common function to get style loaders
-  const getStyleLoaders = (cssOptions) => {
+  const getStyleLoaders = cssOptions => {
     const loaders = [
       isEnvDevelopment && require.resolve('style-loader'),
       isEnvProduction && {
@@ -135,9 +135,8 @@ module.exports = function (webpackEnv) {
       publicPath: paths.publicUrlOrPath,
       // Point sourcemap entries to original disk location (format as URL on Windows)
       devtoolModuleFilenameTemplate: isEnvProduction
-        ? (info) => path.relative(paths.appSrc, info.absoluteResourcePath).replace(/\\/g, '/')
-        : isEnvDevelopment &&
-          ((info) => path.resolve(info.absoluteResourcePath).replace(/\\/g, '/')),
+        ? info => path.relative(paths.appSrc, info.absoluteResourcePath).replace(/\\/g, '/')
+        : isEnvDevelopment && (info => path.resolve(info.absoluteResourcePath).replace(/\\/g, '/')),
       // Prevents conflicts when multiple webpack runtimes (from different apps)
       // are used on the same page.
       jsonpFunction: `webpackJsonp${appPackageJson.name}`,
@@ -171,7 +170,8 @@ module.exports = function (webpackEnv) {
               // https://github.com/facebook/create-react-app/issues/5250
               // Pending further investigation:
               // https://github.com/terser-js/terser/issues/120
-              inline: 2
+              inline: 2,
+              drop_console: true
             },
             mangle: {
               safari10: true
@@ -201,7 +201,7 @@ module.exports = function (webpackEnv) {
       // https://twitter.com/wSokra/status/969679223278505985
       // https://github.com/facebook/create-react-app/issues/5358
       runtimeChunk: {
-        name: (entrypoint) => `runtime-${entrypoint.name}`
+        name: entrypoint => `runtime-${entrypoint.name}`
       }
     },
     resolve: {
@@ -217,8 +217,8 @@ module.exports = function (webpackEnv) {
       // `web` extension prefixes have been added for better support
       // for React Native Web.
       extensions: paths.moduleFileExtensions
-        .map((ext) => `.${ext}`)
-        .filter((ext) => useTypeScript || !ext.includes('ts')),
+        .map(ext => `.${ext}`)
+        .filter(ext => useTypeScript || !ext.includes('ts')),
       alias: {
         // Support React Native Web
         // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
@@ -441,7 +441,7 @@ module.exports = function (webpackEnv) {
             manifest[file.name] = file.path;
             return manifest;
           }, seed);
-          const entrypointFiles = entrypoints.main.filter((fileName) => !fileName.endsWith('.map'));
+          const entrypointFiles = entrypoints.main.filter(fileName => !fileName.endsWith('.map'));
 
           return {
             files: manifestFiles,
