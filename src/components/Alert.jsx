@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { bindActionCreators } from 'redux';
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
-import smoothScrollIntoView from 'smooth-scroll-into-view-if-needed';
 
 import { connect } from 'react-redux';
 import { setAlert } from '../redux/actions';
@@ -73,7 +72,8 @@ const Alert = ({ isVisible, setAlert, lang }) => {
   };
   useEffect(() => {
     if (isVisible) {
-      smoothScrollIntoView(document.getElementById('opt_container'), { behavior: 'smooth' });
+      const ele = document.getElementById('opt_container');
+      ele.scrollIntoView({ behavior: 'smooth' });
 
       disableBodyScroll(modal.current);
     }
@@ -101,7 +101,4 @@ const mapDispatchToProps = dispatch => ({
   setAlert: bindActionCreators(setAlert, dispatch)
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Alert);
+export default connect(mapStateToProps, mapDispatchToProps)(Alert);

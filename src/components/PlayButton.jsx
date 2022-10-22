@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import smoothScrollIntoView from 'smooth-scroll-into-view-if-needed';
 import { setStart, setReset } from '../redux/actions';
 
 const Button = styled.button`
@@ -34,7 +33,8 @@ const PlayButton = ({ playing, setStart, setReset, lang }) => {
       setStart();
     }
     if (!playing) {
-      smoothScrollIntoView(document.getElementById('card_container'), { behavior: 'smooth' });
+      const ele = document.getElementById('card_container');
+      ele.scrollIntoView({ behavior: 'smooth' });
     }
   };
   return <Button onClick={handleStarted}>{playing ? lang.restart : lang.start}</Button>;
@@ -48,7 +48,4 @@ const mapDispatchToProps = dispatch => ({
   setStart: bindActionCreators(setStart, dispatch),
   setReset: bindActionCreators(setReset, dispatch)
 });
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(PlayButton);
+export default connect(mapStateToProps, mapDispatchToProps)(PlayButton);

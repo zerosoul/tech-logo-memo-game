@@ -8,11 +8,12 @@ const Wrapper = styled.div`
     position: absolute;
     right: 0.4rem;
     top: 50%;
-    margin-top: -0.4rem;
+    margin-top: -0.45rem;
     font-size: 0.8rem;
     color: #bd6565;
   }
   select {
+    cursor: pointer;
     font-size: 0.7rem;
     padding: 0.2rem 0.6rem;
     padding-right: 1rem;
