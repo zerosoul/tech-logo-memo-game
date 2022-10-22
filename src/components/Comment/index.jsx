@@ -11,7 +11,7 @@ const DevWrapper = styled.div`
 `;
 
 const Comment = () => {
-  const [isProd] = useState(process.env.NODE_ENV == 'production');
+  const [isProd] = useState(import.meta.env.PROD);
   // const [isProd] = useState(true);
   useEffect(() => {
     if (isProd) {

@@ -84,7 +84,7 @@ const Share = ({ currTimeUsed, toggle = true }) => {
           currTimeUsed,
           true
         )}，完成了挑战！前端图标千千万，快来试试连连看！`}
-        image={`https://works.yangerxiao.com/tech-logo-memo-game/static/logos/fe/yarn.png`}
+        image={`https://works.yangerxiao.com/tech-logo-memo-game/logos/fe/yarn.png`}
       >
         <WeiboIcon size={32} round />
       </WeiboShareButton>
