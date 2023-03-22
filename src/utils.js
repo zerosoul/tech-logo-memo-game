@@ -37,14 +37,14 @@ export const getRandomLogos = (data = Sources.be, level = 'easy') => {
     return {
       name: logo.name,
       title: logo.title,
-      path: `/logos/${type}/${logo.name}.png`,
+      path: `logos/${type}/${logo.name}.png`,
       type: 'title'
     };
   });
   let LogoPics = RandomData.map(logo => {
     return {
       name: logo.name,
-      path: `/logos/${type}/${logo.name}.png`,
+      path: `logos/${type}/${logo.name}.png`,
       title: logo.title,
       type: 'logo'
     };
