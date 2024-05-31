@@ -15,7 +15,6 @@ const Header = React.lazy(() => import('./components/Header'));
 const Footer = React.lazy(() => import('./components/Footer'));
 const FinishAlert = React.lazy(() => import('./components/FinishAlert'));
 import Fullscreen from './components/Fullscreen';
-const Background = React.lazy(() => import('./components/ParticlesBackground'));
 const Options = React.lazy(() => import('./containers/Options'));
 const Cards = React.lazy(() => {
   const tmp = import('./containers/Cards');
@@ -41,7 +40,6 @@ const App = () => {
         <Suspense fallback={<Loading />}>
           <Options />
           <FinishAlert />
-          <Background />
           <Cards />
         </Suspense>
         <AddHomePopup />

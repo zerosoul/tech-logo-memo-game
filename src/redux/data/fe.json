@@ -78,5 +78,21 @@
   {
     "name": "angular",
     "title": "Angular"
+  },
+  {
+    "name": "vercel",
+    "title": "Vercel"
+  },
+  {
+    "name": "nextjs",
+    "title": "NextJS"
+  },
+  {
+    "name": "deno",
+    "title": "Deno"
+  },
+  {
+    "name": "markdown",
+    "title": "Markdown"
   }
 ]
