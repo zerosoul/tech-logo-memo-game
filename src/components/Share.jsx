@@ -51,7 +51,7 @@ const Wrapper = styled.div`
     cursor: pointer;
   }
 `;
-const shareUrl = `https://works.yangerxiao.com/tech-logo-memo-game/`;
+const shareUrl = `https://logo-game.yangerxiao.com/`;
 let intTime = null;
 const Share = ({ currTimeUsed, toggle = true }) => {
   const [hidden, setHidden] = useState(false);
