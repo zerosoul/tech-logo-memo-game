@@ -31,7 +31,7 @@
   "bugs": {
     "url": "https://github.com/zerosoul/frontend-memo-game/issues"
   },
-  "homepage": "https://works.yangerxiao.com/tech-logo-memo-game/",
+  "homepage": "https://logo-game.yangerxiao.com/",
   "dependencies": {
     "body-scroll-lock": "^3.1.5",
     "gitalk": "^1.8.0",
